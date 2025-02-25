@@ -47,9 +47,13 @@ git push
 
 
 然后在任意目录下新建一个目录`blogs`(这个名字随意),进入该目录执行`hexo init`。
-然后清空该目录的文件，并执行`git clone`:
+然后清空该目录的文件，并执行`git clone`并切换到对应的分支:
 ```
 git clone git@github.com:yangyihui2020/yangyihui2020.github.io.git
+git switch hexo
 ```
 
+
+
+然后你就可以在不同设备上实现hexo博客的源文件共享了。注意，每次写博客之前最好执行`git pull`来保持文件的同步，上传网页时同时执行一下`git push`
 
