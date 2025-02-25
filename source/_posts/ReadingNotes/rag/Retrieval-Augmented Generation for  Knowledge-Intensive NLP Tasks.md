@@ -7,4 +7,4 @@ categories: [ReadingNotes,rag]
 
 
 
-# 测试
+# 测试hexo是否可以多端同步
