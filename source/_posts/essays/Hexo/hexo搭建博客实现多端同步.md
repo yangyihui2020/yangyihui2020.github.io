@@ -59,4 +59,12 @@ git switch hexo
 注意，每次写博客之前最好执行`git pull`，上传网页后同时执行一下`git push`来保持文件的同步
 {% endnote %}
 
-
+## 可能会遇到的问题
+{% note danger %}
+在这个过程中可能会遇到`hexo g`等命令不起作用的情况，hexo提示的命令也变少了.
+{% endnote %}
+{% note info %}
+这个时候你就要观察你执行命令的目录是否是你博客真正对应的目录。
+比如我执行完上述操作后，我的博客目录应该是yangyihui2020.github.io，而不是blogs。
+你必须要在博客对应目录下执行对应操作才行。 
+{%endnote%}
