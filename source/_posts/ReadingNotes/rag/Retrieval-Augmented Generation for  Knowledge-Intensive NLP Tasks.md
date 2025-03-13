@@ -7,7 +7,8 @@ categories: [ReadingNotes,rag]
 
 # RAG 检索增强生成技术背景介绍
 
-RAG（Retrieval-Augmented Generation，检索增强生成） 是一种结合了信息检索技术与语言生成模型的人工智能技术。该技术通过从外部知识库中检索相关信息，并将其作为提示（Prompt）输入给大型语言模型（LLMs），以增强模型处理知识密集型任务的能力，如问答、文本摘要、内容生成等。RAG模型由Facebook AI Research（FAIR）团队于2020年首次提出，并迅速成为大模型应用中的热门方案。
+
+RAG（Retrieval-Augmented Generation，检索增强生成） 是一种结合了信息检索技术与语言生成模型的人工智能技术。该技术通过从外部知识库中检索相关信息，并将其作为提示（Prompt）输入给大型语言模型（LLMs），以增强模型处理知识密集型任务的能力，如问答、文本摘要、内容生成等。RAG模型由Facebook AI Research（FAIR）团队于2020年首次提出，并迅速成为大模型应用中的热门方案。(这篇论文可以说是RAG技术的开山之作)
 
 ![](/images/rag.jpg)
 
@@ -31,17 +32,15 @@ RAG一般有3个步骤：
 这篇论文提出了两种RAG模型：RAG-Sequence和RAG-Token，用于解决知识密集型任务中的生成问题：
 
 1. ​**RAG-Sequence模型:**​ 该模型使用相同的检索文档来生成整个序列。它将检索到的文档视为一个单一的潜在变量，并通过top-K近似来边缘化以获得seq2seq概率。
+![RAG-Sequence-Model相应公式](/images/RAG-Sequence-Model.png)
+1. ​**RAG-Token模型:**​ 该模型为每个目标标记抽取不同的潜在文档，并相应地进行边缘化。这允许生成器在生成答案时从多个文档中选择内容。具体来说，使用检索器检索前 K 个文档，然后生成器为每个文档的下一个输出标记生成一个分布，然后边缘化，并使用以下输出标记重复该过程。
+![alt text](/images/RAG-Token-Model.png)
 
-2. ​**RAG-Token模型:**​ 该模型为每个目标标记抽取不同的潜在文档，并相应地进行边缘化。这允许生成器在生成答案时从多个文档中选择内容。
 
 检索器使用DPR（Dense Passage Retriever）作为检索组件，采用双向编码器架构，通过最大内积搜索（MIPS）问题近似求解top-K文档。
-
+![alt text](/images/Retriever.png)
 生成器：使用BART-large作为生成器组件，通过连接输入和检索内容来生成输出。
 
 ## 实验
 实验采用了多个知识密集型NLP任务的数据集，包括自然问题（NQ）、TriviaQA（TQA）、WebQuestions（WQ）、CuratedTrec（CT）、MS-MARCO、Jeopardy问题生成和FEVER。
 
-
-{% note info %}
-这篇论文还是很值得一读的，等后续时间充足了再来补一下精读的文档
-{%endnote%}
