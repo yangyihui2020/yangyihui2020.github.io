@@ -7,7 +7,6 @@ categories: [ReadingNotes,rag]
 
 # RAG 检索增强生成技术背景介绍
 
-
 RAG（Retrieval-Augmented Generation，检索增强生成） 是一种结合了信息检索技术与语言生成模型的人工智能技术。该技术通过从外部知识库中检索相关信息，并将其作为提示（Prompt）输入给大型语言模型（LLMs），以增强模型处理知识密集型任务的能力，如问答、文本摘要、内容生成等。RAG模型由Facebook AI Research（FAIR）团队于2020年首次提出，并迅速成为大模型应用中的热门方案。(这篇论文可以说是RAG技术的开山之作)
 
 ![](/images/rag.jpg)
@@ -21,7 +20,7 @@ RAG一般有3个步骤：
 
 
 # RAG Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks
-
+[文章链接](https://arxiv.org/abs/2005.11401)
 
 ## 研究背景
 这篇文章的研究背景是大型预训练语言模型虽然能够在下游NLP任务中存储事实性知识并取得优异表现，但在访问和精确操作知识方面仍然有限。因此，在知识密集型任务中，这些模型的表现落后于特定任务的架构。此外，提供决策的可追溯性和更新世界知识仍然是开放的研究问题。
@@ -37,7 +36,9 @@ RAG一般有3个步骤：
 ![alt text](/images/RAG-Token-Model.png)
 
 
-检索器使用DPR（Dense Passage Retriever）作为检索组件，采用双向编码器架构，通过最大内积搜索（MIPS）问题近似求解top-K文档。
+
+
+检索器：使用DPR（Dense Passage Retriever）作为检索组件，采用双向编码器架构，通过最大内积搜索（MIPS）问题近似求解top-K文档。
 ![alt text](/images/Retriever.png)
 生成器：使用BART-large作为生成器组件，通过连接输入和检索内容来生成输出。
 
