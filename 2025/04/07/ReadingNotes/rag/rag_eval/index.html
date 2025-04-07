@@ -19,28 +19,23 @@
   <meta name="author" content="yihui">
   <meta name="keywords" content="">
   
-    <meta name="description" content="RAG 检索增强生成技术背景介绍RAG（Retrieval-Augmented Generation，检索增强生成） 是一种结合了信息检索技术与语言生成模型的人工智能技术。该技术通过从外部知识库中检索相关信息，并将其作为提示（Prompt）输入给大型语言模型（LLMs），以增强模型处理知识密集型任务的能力，如问答、文本摘要、内容生成等。RAG模型由Facebook AI Research（FAIR">
+    <meta name="description" content="以下是重新组织后的语言，并使用了 Markdown 格式：  Ragas 评估工具概述Ragas 是一个用于评估 RAG（Retrieval-Augmented Generation，检索增强生成）应用程序的工具库。它通过提供一系列工具来帮助用户轻松且自信地评估其 RAG 应用程序的性能。 Ragas 采用了一种新颖的评测数据生成方法。理想的评测数据集应该涵盖实际应用中遇到的各种类型的问题，包括不">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks">
-<meta property="og:url" content="http://yangyihui2020.github.io/2025/02/24/ReadingNotes/rag/Retrieval-Augmented%20Generation%20for%20%20Knowledge-Intensive%20NLP%20Tasks/">
+<meta property="og:title" content="基于ragas和evalscope实现rag快速评测">
+<meta property="og:url" content="http://yangyihui2020.github.io/2025/04/07/ReadingNotes/rag/rag_eval/">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="RAG 检索增强生成技术背景介绍RAG（Retrieval-Augmented Generation，检索增强生成） 是一种结合了信息检索技术与语言生成模型的人工智能技术。该技术通过从外部知识库中检索相关信息，并将其作为提示（Prompt）输入给大型语言模型（LLMs），以增强模型处理知识密集型任务的能力，如问答、文本摘要、内容生成等。RAG模型由Facebook AI Research（FAIR">
+<meta property="og:description" content="以下是重新组织后的语言，并使用了 Markdown 格式：  Ragas 评估工具概述Ragas 是一个用于评估 RAG（Retrieval-Augmented Generation，检索增强生成）应用程序的工具库。它通过提供一系列工具来帮助用户轻松且自信地评估其 RAG 应用程序的性能。 Ragas 采用了一种新颖的评测数据生成方法。理想的评测数据集应该涵盖实际应用中遇到的各种类型的问题，包括不">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yangyihui2020.github.io/images/rag.jpg">
-<meta property="og:image" content="http://yangyihui2020.github.io/images/RAG-Sequence-Model.png">
-<meta property="og:image" content="http://yangyihui2020.github.io/images/RAG-Token-Model.png">
-<meta property="og:image" content="http://yangyihui2020.github.io/images/Retriever.png">
-<meta property="article:published_time" content="2025-02-24T07:47:31.000Z">
-<meta property="article:modified_time" content="2025-03-31T07:13:41.001Z">
+<meta property="article:published_time" content="2025-04-07T07:47:31.000Z">
+<meta property="article:modified_time" content="2025-04-07T08:44:14.443Z">
 <meta property="article:author" content="yihui">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://yangyihui2020.github.io/images/rag.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks - Hexo</title>
+  <title>基于ragas和evalscope实现rag快速评测 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -218,7 +213,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"></span>
+            <span id="subtitle" data-typed-text="基于ragas和evalscope实现rag快速评测"></span>
           
         </div>
 
@@ -234,8 +229,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-02-24 15:47" pubdate>
-          2025年2月24日 下午
+        <time datetime="2025-04-07 15:47" pubdate>
+          2025年4月7日 下午
         </time>
       </span>
     
@@ -300,12 +295,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</h1>
+            <h1 id="seo-header">基于ragas和evalscope实现rag快速评测</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2025年3月31日 下午
+                    本文最后更新于 2025年4月7日 下午
                   
                 
               </p>
@@ -313,27 +308,28 @@
             
               <div class="markdown-body">
                 
-                <h1 id="RAG-检索增强生成技术背景介绍"><a href="#RAG-检索增强生成技术背景介绍" class="headerlink" title="RAG 检索增强生成技术背景介绍"></a>RAG 检索增强生成技术背景介绍</h1><p>RAG（Retrieval-Augmented Generation，检索增强生成） 是一种结合了信息检索技术与语言生成模型的人工智能技术。该技术通过从外部知识库中检索相关信息，并将其作为提示（Prompt）输入给大型语言模型（LLMs），以增强模型处理知识密集型任务的能力，如问答、文本摘要、内容生成等。RAG模型由Facebook AI Research（FAIR）团队于2020年首次提出，并迅速成为大模型应用中的热门方案。(这篇论文可以说是RAG技术的开山之作)</p>
-<p><img src="/images/rag.jpg" srcset="/img/loading.gif" lazyload></p>
-<p>RAG一般有3个步骤：</p>
+                <p>以下是重新组织后的语言，并使用了 Markdown 格式：</p>
+<hr>
+<h3 id="Ragas-评估工具概述"><a href="#Ragas-评估工具概述" class="headerlink" title="Ragas 评估工具概述"></a>Ragas 评估工具概述</h3><p>Ragas 是一个用于评估 RAG（Retrieval-Augmented Generation，检索增强生成）应用程序的工具库。它通过提供一系列工具来帮助用户轻松且自信地评估其 RAG 应用程序的性能。</p>
+<p>Ragas 采用了一种新颖的评测数据生成方法。理想的评测数据集应该涵盖实际应用中遇到的各种类型的问题，包括不同难度等级的问题。然而，默认情况下，大语言模型（LLMs）通常不擅长创建多样化的样本，因为它们往往会遵循常见的路径。受到 Evol-Instruct 等工作的启发，Ragas 通过采用进化生成范式来实现这一目标。在这个过程中，具有不同特征的问题（如推理、条件、多个上下文等）会根据提供的文档集被系统地构建。这种方法确保了对管道中各个组件性能的全面覆盖，从而使评测过程更加稳健。</p>
+<p>Ragas 的官网 <a target="_blank" rel="noopener" href="https://docs.ragas.io/">https://docs.ragas.io/</a> 介绍了如何通过大模型 API 接口初始化评测端模型，以实现评测指标的计算。然而，这种方式可能会受到网络连接等因素的影响，从而限制本地应用的效果。</p>
+<h3 id="在本地部署-Ragas-服务"><a href="#在本地部署-Ragas-服务" class="headerlink" title="在本地部署 Ragas 服务"></a>在本地部署 Ragas 服务</h3><p>为了克服网络连接问题并提升本地应用的性能，可以通过 <a target="_blank" rel="noopener" href="https://evalscope.readthedocs.io/zh-cn/latest/user_guides/backend/rageval_backend/ragas.html">EvalScope</a> 项目结合 <a target="_blank" rel="noopener" href="https://vllm.hyper.ai/docs/getting-started/quickstart/">vLLM</a> 来实现本地部署。</p>
+<h4 id="使用-vLLM-构建本地-API-服务器"><a href="#使用-vLLM-构建本地-API-服务器" class="headerlink" title="使用 vLLM 构建本地 API 服务器"></a>使用 vLLM 构建本地 API 服务器</h4><p>vLLM 是一个高性能的推理引擎，可以在本地为大语言模型构建 API 服务器。通过 vLLM，用户可以快速部署本地 Ragas 服务，从而避免网络连接问题对评估过程的影响。</p>
+<p>以下是使用 vLLM 构建本地 API 服务器的步骤：</p>
 <ol>
-<li><p>检索：检索是RAG流程的第一步，从预先建立的知识库中检索与问题相关的信息。这一步的目的是为后续的生成过程提供有用的上下文信息和知识支撑。</p>
+<li><p><strong>安装 vLLM</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install vllm<br></code></pre></td></tr></table></figure>
 </li>
-<li><p>增强：RAG中增强是将检索到的信息用作生成模型（即大语言模型）的上下文输入，以增强模型对特定问题的理解和回答能力。这一步的目的是将外部知识融入生成过程中，使生成的文本内容更加丰富、准确和符合用户需求。通过增强步骤，LLM模型能够充分利用外部知识库中的信息。</p>
+<li><p><strong>启动 vLLM 服务器</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vllm serve facebook/opt-125m<br></code></pre></td></tr></table></figure>
+<p>默认情况下，服务器会在 <code>http://localhost:8000</code> 启动。可以通过 <code>--host</code> 和 <code>--port</code> 参数指定其他地址。</p>
 </li>
-<li><p>生成：生成是RAG流程的最后一步。这一步的目的是结合LLM生成符合用户需求的回答。生成器会利用检索到的信息作为上下文输入，并结合大语言模型来生成文本内容。</p>
+<li><p><strong>使用 OpenAI API 兼容模式</strong>：<br>vLLM 服务器支持 OpenAI API 协议，可以直接替代 OpenAI API。可以使用 <code>curl</code> 或 Python 客户端进行查询。例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl http://localhost:8000/v1/completions \<br>    -H <span class="hljs-string">&quot;Content-Type: application/json&quot;</span> \<br>    -d <span class="hljs-string">&#x27;&#123;</span><br><span class="hljs-string">        &quot;model&quot;: &quot;facebook/opt-125m&quot;,</span><br><span class="hljs-string">        &quot;prompt&quot;: &quot;San Francisco is a&quot;,</span><br><span class="hljs-string">        &quot;max_tokens&quot;: 7,</span><br><span class="hljs-string">        &quot;temperature&quot;: 0</span><br><span class="hljs-string">    &#125;&#x27;</span><br></code></pre></td></tr></table></figure>
 </li>
+<li><p><strong>在 EvalScope 中使用本地 vLLM 服务</strong>：<br>在 EvalScope 的配置中，将评测模型的 API 基础地址设置为本地 vLLM 服务器的地址。例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python">eval_task_cfg = &#123;<br>    <span class="hljs-string">&quot;eval_backend&quot;</span>: <span class="hljs-string">&quot;RAGEval&quot;</span>,<br>    <span class="hljs-string">&quot;eval_config&quot;</span>: &#123;<br>        <span class="hljs-string">&quot;tool&quot;</span>: <span class="hljs-string">&quot;RAGAS&quot;</span>,<br>        <span class="hljs-string">&quot;eval&quot;</span>: &#123;<br>            <span class="hljs-string">&quot;testset_file&quot;</span>: <span class="hljs-string">&quot;outputs/testset_with_answer.json&quot;</span>,<br>            <span class="hljs-string">&quot;critic_llm&quot;</span>: &#123;<br>                <span class="hljs-string">&quot;model_name&quot;</span>: <span class="hljs-string">&quot;facebook/opt-125m&quot;</span>,<br>                <span class="hljs-string">&quot;api_base&quot;</span>: <span class="hljs-string">&quot;http://localhost:8000/v1&quot;</span>,<br>                <span class="hljs-string">&quot;api_key&quot;</span>: <span class="hljs-string">&quot;EMPTY&quot;</span>,<br>            &#125;,<br>            <span class="hljs-string">&quot;embeddings&quot;</span>: &#123;<br>                <span class="hljs-string">&quot;model_name_or_path&quot;</span>: <span class="hljs-string">&quot;AI-ModelScope/m3e-base&quot;</span>,<br>            &#125;,<br>            <span class="hljs-string">&quot;metrics&quot;</span>: [<br>                <span class="hljs-string">&quot;Faithfulness&quot;</span>,<br>                <span class="hljs-string">&quot;AnswerRelevancy&quot;</span>,<br>                <span class="hljs-string">&quot;ContextPrecision&quot;</span>,<br>                <span class="hljs-string">&quot;AnswerCorrectness&quot;</span>,<br>            ],<br>            <span class="hljs-string">&quot;language&quot;</span>: <span class="hljs-string">&quot;chinese&quot;</span><br>        &#125;,<br>    &#125;,<br>&#125;<br></code></pre></td></tr></table></figure></li>
 </ol>
-<h1 id="RAG-Retrieval-Augmented-Generation-for-Knowledge-Intensive-NLP-Tasks"><a href="#RAG-Retrieval-Augmented-Generation-for-Knowledge-Intensive-NLP-Tasks" class="headerlink" title="RAG Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"></a>RAG Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</h1><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2005.11401">文章链接</a></p>
-<h2 id="研究背景"><a href="#研究背景" class="headerlink" title="研究背景"></a>研究背景</h2><p>这篇文章的研究背景是大型预训练语言模型虽然能够在下游NLP任务中存储事实性知识并取得优异表现，但在访问和精确操作知识方面仍然有限。因此，在知识密集型任务中，这些模型的表现落后于特定任务的架构。此外，提供决策的可追溯性和更新世界知识仍然是开放的研究问题。</p>
-<p>文章着眼于此，提出的RAG模型通过结合预训练的参数化记忆和非参数化记忆，在知识密集型NLP任务中取得了显著的性能提升。</p>
-<h2 id="研究方法"><a href="#研究方法" class="headerlink" title="研究方法"></a>研究方法</h2><p>这篇论文提出了两种RAG模型：RAG-Sequence和RAG-Token，用于解决知识密集型任务中的生成问题：</p>
-<ol>
-<li>​**RAG-Sequence模型:**​ 该模型使用相同的检索文档来生成整个序列。它将检索到的文档视为一个单一的潜在变量，并通过top-K近似来边缘化以获得seq2seq概率。<br><img src="/images/RAG-Sequence-Model.png" srcset="/img/loading.gif" lazyload alt="RAG-Sequence-Model相应公式"></li>
-<li>​**RAG-Token模型:**​ 该模型为每个目标标记抽取不同的潜在文档，并相应地进行边缘化。这允许生成器在生成答案时从多个文档中选择内容。具体来说，使用检索器检索前 K 个文档，然后生成器为每个文档的下一个输出标记生成一个分布，然后边缘化，并使用以下输出标记重复该过程。<br><img src="/images/RAG-Token-Model.png" srcset="/img/loading.gif" lazyload alt="alt text"></li>
-</ol>
-<p>检索器：使用DPR（Dense Passage Retriever）作为检索组件，采用双向编码器架构，通过最大内积搜索（MIPS）问题近似求解top-K文档。<br><img src="/images/Retriever.png" srcset="/img/loading.gif" lazyload alt="alt text"><br>生成器：使用BART-large作为生成器组件，通过连接输入和检索内容来生成输出。</p>
-<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p>实验采用了多个知识密集型NLP任务的数据集，包括自然问题（NQ）、TriviaQA（TQA）、WebQuestions（WQ）、CuratedTrec（CT）、MS-MARCO、Jeopardy问题生成和FEVER。</p>
 
                 
               </div>
@@ -379,8 +375,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</div>
-      <div>http://yangyihui2020.github.io/2025/02/24/ReadingNotes/rag/Retrieval-Augmented Generation for  Knowledge-Intensive NLP Tasks/</div>
+      <div>基于ragas和evalscope实现rag快速评测</div>
+      <div>http://yangyihui2020.github.io/2025/04/07/ReadingNotes/rag/rag_eval/</div>
     </div>
     <div class="license-meta">
       
@@ -392,7 +388,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年2月24日</div>
+          <div>2025年4月7日</div>
         </div>
       
       
@@ -424,18 +420,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/02/25/essays/Hexo/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AB%AF%E5%90%8C%E6%AD%A5/" title="hexo搭建博客实现多端同步">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">hexo搭建博客实现多端同步</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/02/24/ReadingNotes/rag/The%20Power%20of%20Noise-Redefining%20Retrieval%20for%20RAG%20Systems/" title="THE power of noise">
-                        <span class="hidden-mobile">THE power of noise</span>
+                      <a href="/2025/03/13/ReadingNotes/rag/M3-Embedding/" title="M3-Embedding Multi-Linguality, Multi-Functionality, Multi-Granularity Text Embeddings Through Self-Knowledge Distillation">
+                        <span class="hidden-mobile">M3-Embedding Multi-Linguality, Multi-Functionality, Multi-Granularity Text Embeddings Through Self-Knowledge Distillation</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
