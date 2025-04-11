@@ -19,12 +19,12 @@
   <meta name="author" content="yihui">
   <meta name="keywords" content="">
   
-    <meta name="description" content="基于hexo+github实现博客撰写的多端同步功能 hexo 本身自带的同步功能hexo d上传的只是网页部署文件，未上传网页源文件，所以如果我们要在另一台设备上对博客进行修改的话就会遇到困难。我们可以在在github的blog仓库新建一个分支，存储源文件，然后在不同设备间同步源文件。这样就可以实现博客在不同设备上的同步了。 github对应的仓库新建分支 首先你需要在你博客对应的github仓">
+    <meta name="description" content="基于hexo+github实现博客撰写的多端同步功能 hexo 本身自带的同步功能hexo d上传的只是网页部署文件，未上传网页源文件，所以如果我们要在另一台设备上对博客进行修改的话就会遇到困难。我们可以在在github的blog仓库新建一个分支，存储源文件，然后在不同设备间同步源文件。这样就可以实现博客在不同设备上的同步了。 github对应的仓库新建分支 首先你需要在你博客对应的gith">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo搭建博客实现多端同步">
 <meta property="og:url" content="http://yangyihui2020.github.io/2025/02/25/essays/Hexo/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AB%AF%E5%90%8C%E6%AD%A5/">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="基于hexo+github实现博客撰写的多端同步功能 hexo 本身自带的同步功能hexo d上传的只是网页部署文件，未上传网页源文件，所以如果我们要在另一台设备上对博客进行修改的话就会遇到困难。我们可以在在github的blog仓库新建一个分支，存储源文件，然后在不同设备间同步源文件。这样就可以实现博客在不同设备上的同步了。 github对应的仓库新建分支 首先你需要在你博客对应的github仓">
+<meta property="og:description" content="基于hexo+github实现博客撰写的多端同步功能 hexo 本身自带的同步功能hexo d上传的只是网页部署文件，未上传网页源文件，所以如果我们要在另一台设备上对博客进行修改的话就会遇到困难。我们可以在在github的blog仓库新建一个分支，存储源文件，然后在不同设备间同步源文件。这样就可以实现博客在不同设备上的同步了。 github对应的仓库新建分支 首先你需要在你博客对应的gith">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-02-25T07:47:31.000Z">
 <meta property="article:modified_time" content="2025-02-28T06:00:04.265Z">
@@ -308,32 +308,29 @@
             
               <div class="markdown-body">
                 
-                <h1>基于hexo+github实现博客撰写的多端同步功能</h1>
+                <h1 id="基于hexogithub实现博客撰写的多端同步功能">基于hexo+github实现博客撰写的多端同步功能</h1>
 <p>hexo 本身自带的同步功能<code>hexo d</code>上传的只是网页部署文件，未上传网页源文件，所以如果我们要在另一台设备上对博客进行修改的话就会遇到困难。我们可以在在github的blog仓库新建一个分支，存储源文件，然后在不同设备间同步源文件。这样就可以实现博客在不同设备上的同步了。</p>
 <h2 id="github对应的仓库新建分支">github对应的仓库新建分支</h2>
 <p>首先你需要在你博客对应的github仓库(比如我的就是<code>https://github.com/yangyihui2020/yangyihui2020.github.io)</code>新建分支<code>hexo</code>。</p>
-<h2 id="在已有博客文件的旧设备上执行的操作-：">在已有博客文件的旧设备上执行的操作 ：</h2>
-<p>然后在本地任意目录下执行 <code>git clone</code>。并切换到对应分支：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stylus">git clone git@github<span class="hljs-selector-class">.com</span>:yangyihui2020/yangyihui2020<span class="hljs-selector-class">.github</span><span class="hljs-selector-class">.io</span><span class="hljs-selector-class">.git</span><br>cd yangyihui2020<span class="hljs-selector-class">.github</span><span class="hljs-selector-class">.io</span><br>git <span class="hljs-selector-tag">switch</span> hexo<br></code></pre></td></tr></table></figure>
+<h2 id="在已有博客文件的旧设备上执行的操作">在已有博客文件的旧设备上执行的操作 ：</h2>
+<p>然后在本地任意目录下执行 <code>git clone</code>。并切换到对应分支： <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs stylus">git clone git@github<span class="hljs-selector-class">.com</span>:yangyihui2020/yangyihui2020<span class="hljs-selector-class">.github</span><span class="hljs-selector-class">.io</span><span class="hljs-selector-class">.git</span><br>cd yangyihui2020<span class="hljs-selector-class">.github</span><span class="hljs-selector-class">.io</span><br>git <span class="hljs-selector-tag">switch</span> hexo<br></code></pre></td></tr></table></figure></p>
 <p>然后删除掉仓库目录（比如我的就是<code>yangyihui2020.github.io</code>)下除去.git之外的所有文件，并将原博客目录下的所有文件复制到该目录下。</p>
 <p>然后上传到hexo分支</p>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs armasm"><span class="hljs-symbol">git</span> <span class="hljs-keyword">add</span> .<br><span class="hljs-symbol">git</span> commit -m <span class="hljs-string">&quot;新建hexo分支&quot;</span><br><span class="hljs-symbol">git</span> <span class="hljs-keyword">push</span> <br></code></pre></td></tr></table></figure>
-<h2 id="在新设备上执行的操作-：">在新设备上执行的操作 ：</h2>
+<h2 id="在新设备上执行的操作">在新设备上执行的操作 ：</h2>
 <p>在新设备，你需要提前配置好hexo所需要的环境。可以参考<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">文档 | Hexo</a> 。</p>
-<p>然后在任意目录下新建一个目录<code>blogs</code>(这个名字随意),进入该目录执行<code>hexo init</code>。<br>
-然后清空该目录的文件，并执行<code>git clone</code>并切换到对应的分支:</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">git clone git@github<span class="hljs-selector-class">.com</span>:yangyihui2020/yangyihui2020<span class="hljs-selector-class">.github</span><span class="hljs-selector-class">.io</span><span class="hljs-selector-class">.git</span><br>git <span class="hljs-selector-tag">switch</span> hexo<br></code></pre></td></tr></table></figure>
-<p>然后你就可以在不同设备上实现hexo博客的源文件共享了。</p>
-<div class="note note-info">
+<p>然后在任意目录下新建一个目录<code>blogs</code>(这个名字随意),进入该目录执行<code>hexo init</code>。 然后清空该目录的文件，并执行<code>git clone</code>并切换到对应的分支: <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">git clone git@github<span class="hljs-selector-class">.com</span>:yangyihui2020/yangyihui2020<span class="hljs-selector-class">.github</span><span class="hljs-selector-class">.io</span><span class="hljs-selector-class">.git</span><br>git <span class="hljs-selector-tag">switch</span> hexo<br></code></pre></td></tr></table></figure></p>
+<p>然后你就可以在不同设备上实现hexo博客的源文件共享了。 <div class="note note-info">
             <p>注意，每次写博客之前最好执行<code>git pull</code>，上传网页后同时执行一下<code>git push</code>来保持文件的同步</p>
-          </div>
+          </div></p>
 <h2 id="可能会遇到的问题">可能会遇到的问题</h2>
 <div class="note note-danger">
             <p>在这个过程中可能会遇到<code>hexo g</code>等命令不起作用的情况，hexo提示的命令也变少了.</p>
           </div>
 <div class="note note-info">
-            <p>这个时候你就要观察你执行命令的目录是否是你博客真正对应的目录。<br>比如我执行完上述操作后，<a target="_blank" rel="noopener" href="http://xn--yangyihui2020-9n6vv77gy3jz9c6trkvt960fx2bv33s.github.io">我的博客目录应该是yangyihui2020.github.io</a>，而不是blogs。<br>你必须要在博客对应目录下执行对应操作才行。</p>
+            <p>这个时候你就要观察你执行命令的目录是否是你博客真正对应的目录。 比如我执行完上述操作后，我的博客目录应该是yangyihui2020.github.io，而不是blogs。 你必须要在博客对应目录下执行对应操作才行。</p>
           </div>
+
                 
               </div>
             
@@ -433,8 +430,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/02/24/ReadingNotes/rag/The%20Power%20of%20Noise-Redefining%20Retrieval%20for%20RAG%20Systems/" title="THE power of noise">
-                        <span class="hidden-mobile">THE power of noise</span>
+                      <a href="/2025/02/24/ReadingNotes/rag/Retrieval-Augmented%20Generation%20for%20%20Knowledge-Intensive%20NLP%20Tasks/" title="Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks">
+                        <span class="hidden-mobile">Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

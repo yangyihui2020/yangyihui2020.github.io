@@ -19,23 +19,25 @@
   <meta name="author" content="yihui">
   <meta name="keywords" content="">
   
-    <meta name="description" content="大模型编码梳理 本文将以Transformer模型为例，梳理大模型生成嵌入的思路。 计算机无法直接理解人类语言。它们需要将文本以数字形式表示——使用向量、矩阵或数字序列。这种转换使得像Transformer这样的模型能够处理数据并从中学习。以Transformer为代表的模型通常生成嵌入的思路如下： 一、输入处理 使用任何机器学习模型的第一步都是处理输入数据。加入我们现在有这样一个输入文本">
+    <meta name="description" content="我们通常使用hexo框架插入图片时，图片通常会被保存到一个绝对路径的文件夹下\source\images, 这样比较麻烦，这里介绍一种可以直接在插入保存到粘贴板中的方法。 首先使用hexo new命令来创建文章，比如我使用 1hexo new post hexo+vscode实现快速图片插入 -p essays&#x2F;Hexo&#x2F;hexo快速图片插入 该命令会新建一个md文件和与md文件同名的文件夹">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CogLTX-Applting BERT to LOng Texts 论文阅读 And 大模型编码梳理">
-<meta property="og:url" content="http://yangyihui2020.github.io/2025/04/11/ReadingNotes/rag/CogLTX-Applting%20BERT%20to%20LOng%20Texts%20And%20%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%BC%96%E7%A0%81%E6%A2%B3%E7%90%86/">
+<meta property="og:title" content="hexo+vscode实现快速图片插入">
+<meta property="og:url" content="http://yangyihui2020.github.io/2025/04/11/essays/Hexo/hexo%E5%BF%AB%E9%80%9F%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5/">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="大模型编码梳理 本文将以Transformer模型为例，梳理大模型生成嵌入的思路。 计算机无法直接理解人类语言。它们需要将文本以数字形式表示——使用向量、矩阵或数字序列。这种转换使得像Transformer这样的模型能够处理数据并从中学习。以Transformer为代表的模型通常生成嵌入的思路如下： 一、输入处理 使用任何机器学习模型的第一步都是处理输入数据。加入我们现在有这样一个输入文本">
+<meta property="og:description" content="我们通常使用hexo框架插入图片时，图片通常会被保存到一个绝对路径的文件夹下\source\images, 这样比较麻烦，这里介绍一种可以直接在插入保存到粘贴板中的方法。 首先使用hexo new命令来创建文章，比如我使用 1hexo new post hexo+vscode实现快速图片插入 -p essays&#x2F;Hexo&#x2F;hexo快速图片插入 该命令会新建一个md文件和与md文件同名的文件夹">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-04-11T07:47:31.000Z">
-<meta property="article:modified_time" content="2025-04-11T08:29:15.636Z">
+<meta property="og:image" content="http://yangyihui2020.github.io/2025/04/11/essays/Hexo/hexo%E5%BF%AB%E9%80%9F%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5/2025-04-11-17-18-08.png">
+<meta property="article:published_time" content="2025-04-11T08:46:39.000Z">
+<meta property="article:modified_time" content="2025-04-11T09:43:26.775Z">
 <meta property="article:author" content="yihui">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://yangyihui2020.github.io/2025/04/11/essays/Hexo/hexo%E5%BF%AB%E9%80%9F%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5/2025-04-11-17-18-08.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>CogLTX-Applting BERT to LOng Texts 论文阅读 And 大模型编码梳理 - Hexo</title>
+  <title>hexo+vscode实现快速图片插入 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -213,7 +215,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="CogLTX-Applting BERT to LOng Texts 论文阅读 And 大模型编码梳理"></span>
+            <span id="subtitle" data-typed-text="hexo+vscode实现快速图片插入"></span>
           
         </div>
 
@@ -229,7 +231,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-04-11 15:47" pubdate>
+        <time datetime="2025-04-11 16:46" pubdate>
           2025年4月11日 下午
         </time>
       </span>
@@ -295,7 +297,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">CogLTX-Applting BERT to LOng Texts 论文阅读 And 大模型编码梳理</h1>
+            <h1 id="seo-header">hexo+vscode实现快速图片插入</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
@@ -308,66 +310,14 @@
             
               <div class="markdown-body">
                 
-                <h2 id="大模型编码梳理">大模型编码梳理</h2>
-<p>本文将以Transformer模型为例，梳理大模型生成嵌入的思路。</p>
-<p>计算机无法直接理解人类语言。它们需要将文本以数字形式表示——使用向量、矩阵或数字序列。这种转换使得像Transformer这样的模型能够处理数据并从中学习。以Transformer为代表的模型通常生成嵌入的思路如下：</p>
-<h2 id="一输入处理">一、输入处理</h2>
-<p>使用任何机器学习模型的第一步都是处理输入数据。加入我们现在有这样一个输入文本是： <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">“生活就像骑自行车。”<br></code></pre></td></tr></table></figure></p>
-<h3 id="一构建词汇表">（一）构建词汇表</h3>
-<p>在处理文本之前，需要创建一个词汇表——一个包含训练数据集中每个单词的字典。例如，如果我们的训练数据包含各种励志名言，我们的词汇表可能包括“生活”、“平衡”、“自行车”、“前行”等词汇。每个单词都映射到一个唯一的索引。因此，训练数据中所有不重复的单词将组成词汇表。</p>
-<h3 id="二分配数字索引">（二）分配数字索引</h3>
-<p>接下来，我们为词汇表中的每个单词分配一个唯一的数字索引。这样，我们就可以用数字来表示单词了。</p>
-<h3 id="三提取输入单词">（三）提取输入单词</h3>
-<p>对于输入文本“Life is like riding a bicycle”，我们提取相应的索引如下，</p>
-<h3 id="四转换成序列">（四）转换成序列</h3>
-<p>这一系列的索引就是输入到Transformer模型中的数据。它作为输入文本的数值表示，使模型能够对其进行处理。</p>
-<h2 id="二词嵌入">二、词嵌入</h2>
-<p>一旦我们有了输入序列的索引，下一步就是将这些索引转换成词嵌入。词嵌入将每个单词表示为固定大小的向量，使得模型更容易捕捉单词之间的语义关系。</p>
-<h3 id="一什么是词嵌入">（一）什么是词嵌入？</h3>
-<p>词嵌入是编码单词语义信息的高维向量，相似的单词或经常同时出现的单词具有相似的嵌入。这些向量可以想象成一个多维空间（通常是数百个维度，如原始Transformer论文中的512维），在这个空间中，由于上下文相似，“bicycle”（自行车）和“ride”（骑行）之间的距离比“bicycle”（自行车）和“cloud”（云）之间的距离更近。嵌入的每个维度都捕捉了某些语言特征，比如一个单词是动词还是实体。然而，由于这些特征是在训练过程中学习的，因此确定每个维度的确切含义可能具有挑战性。</p>
-<h3 id="二嵌入层">（二）嵌入层</h3>
-<p>我们序列中的每个词索引都会通过一个嵌入层。这个层将每个索引映射到一个实数向量。原始的Transformer论文中使用的嵌入大小为512。</p>
-<h3 id="三学习有意义的表征">（三）学习有意义的表征</h3>
-<p>最初，这些嵌入是随机分配的。在训练过程中，Transformer会根据给定的任务调整这些向量，以更好地表示单词的含义。例如，“life”（生命）和“existence”（存在）的嵌入可能会随着时间的推移而变得更加接近，因为它们具有相似的含义。</p>
-<h3 id="四嵌入的可视化">（四）嵌入的可视化</h3>
-<p>想象一下在多维空间中绘制单词。像“life”（生命）、“alive”（活着的）和“survival”（生存）这样的单词会聚集在一起，而像“bicycle”（自行车）和“cloud”（云）这样的单词则会相距较远。</p>
-<p>这有助于Transformer不仅理解单个单词，还能理解它们在给定上下文中的相互关系。嵌入层有助于将原始数值输入转换为Transformer可以用来理解文本的丰富表征。</p>
-<h2 id="三位置嵌入">三、位置嵌入</h2>
-<p>现在我们已经有了词嵌入，接下来需要解决一个关键问题——Transformer天生并不理解单词的顺序。与像LSTM这样的循环模型逐个处理序列中的单词不同，Transformer会同时查看所有单词。虽然这使得它们更快，但也意味着它们缺乏单词出现顺序的信息。</p>
-<p>考虑以下两个句子：</p>
-<p><em>“Life is like riding a bicycle, it requires balance.”（生活就像骑自行车，它需要平衡。）</em></p>
-<p><em>“Life requires balance, like riding a bicycle.”（生活需要平衡，就像骑自行车一样。）</em></p>
-<p>这两个句子包含相同的单词，但结构略有不同，导致意义上有细微差别。为了让Transformer捕捉到这些差异，我们需要添加关于单词顺序的信息——这就是位置嵌入发挥作用的地方。</p>
-<h3 id="一方法1基于整数的位置编码">（一）方法1：基于整数的位置编码</h3>
-<p>一个直接的想法是给每个位置分配一个对应的整数。例如，第一个词的嵌入会携带一个全零向量，下一个词则是一个全一向量，依此类推。然而，这种方法很快就会暴露出局限性。随着序列长度的增加，分配给后续单词的较大数字可能会压过底层的词嵌入，导致表示发生偏斜。这种不对齐可能会影响模型保持语义一致性的能力，尤其是在较长文本中。</p>
-<h3 id="二方法2相对于序列长度的分数位置表示">（二）方法2：相对于序列长度的分数位置表示</h3>
-<p>另一种直观的方法是将每个单词的位置表示为总序列长度的一个分数，确保值在0到1之间保持归一化。例如，在一个包含四个单词的句子中，位置嵌入可能对应于像0.25、0.5这样的值。</p>
-<p>这一策略虽然看似有效，但却引入了一个重大挑战：相同位置（例如，第二个单词p1）的位置嵌入会因序列长度的不同而变化，从而引入不一致性，这可能会使模型感到困惑并降低性能。为了获得最佳结果，位置值理应独立于序列长度。</p>
-<h3 id="三方法3正弦位置嵌入">（三）方法3：正弦位置嵌入</h3>
-<p>下一种方法利用正弦函数来生成位置嵌入，从而在x轴上创建一条平滑的波浪形曲线来编码单词位置。通过将单词位置映射到正弦波的高度，每个位置都会在一个有限范围内获得一个唯一值，无论序列长度如何。这种方法通过标准化位置嵌入值，缓解了之前方法中出现的扭曲风险。</p>
-<p>然而，一个缺点出现在曲线上对称位置的单词上（例如，在可视化环境中用蓝色和紫色等颜色表示）；尽管这些单词的位置不同，但它们产生的位置值却相同，这可能导致潜在的歧义。</p>
-<h3 id="四方法4受二进制启发的编码">（四）方法4：受二进制启发的编码</h3>
-<p>最后，一种创新的视角借鉴了二进制表示原理。在二进制编码中，比特率的变化是可预测的；最低有效位在每个数字间交替变化，下一个较低的位在每两个数字间交替，依此类推。</p>
-<p>将这种概念从二进制位转换为浮点数，可以实现一种紧凑且高效的编码机制，该机制能够在不占用过多计算资源的情况下保持单词位置的唯一性。这种受二进制启发的方法为Transformer中位置嵌入的设计提供了一条有前景的道路。</p>
-<h3 id="五transformer方法使用正弦函数的位置编码">（五）Transformer方法：使用正弦函数的位置编码</h3>
-<p>在Transformer的背景下，通过正弦函数嵌入单词位置提供了一种精细的方法来连续捕获位置信息。该解决方案通过使用交替的正弦和余弦函数，解决了传统位置编码的挑战。这些函数表示出类似于二进制位模式的连续、平滑波形，但在基于浮点数的系统中更加灵活和高效。</p>
-<h4 id="正弦频率调制">正弦频率调制</h4>
-<p>为了避免位置嵌入的冗余，不同位置使用不同频率的正弦函数，引入了一种微妙但强大的手段来区分序列中即使位置相近的单词。</p>
-<p>其原理如下：如果两个点在低频正弦波上靠得很近，那么它们将难以区分；然而，高频会放大波形高度的差异。因此，每个位置及其频率共同构成了序列中单词的整体顺序信息。</p>
-<p>这种方法依赖于根据每个嵌入维度调整正弦频率，使得在较低频率下能够区分较近的单词，而在较高频率下，相隔较远的单词则表现出明显的差异。这种频率调制确保模型能够准确识别输入中单词之间的即时和远距离关系。</p>
-<p>因此，为了实现有效的位置编码，一个关键方面是频率调制，它必须根据嵌入向量中的每个位置而变化。在这里，变量i在产生这些变化中起着关键作用。通过在不同的i值下重新计算正弦曲线，我们在嵌入维度上生成了一系列具有不同频率的曲线，为每个位置pos创建了细微差别的位置嵌入。在这里，d=512，是位置嵌入的维度。</p>
-<p>让我们通过一个例子来阐明这一点。假设我们需要确定位于“蓝色”和“紫色”位置的单词的位置嵌入。当在低频率下（例如，在第三个嵌入维度中）检查这些嵌入时，这两个位置的值最初可能看起来是相同的。然而，随着我们增加频率——或者向第一个嵌入维度推进——这些值开始显著不同。这种差异在高频率下尤其明显，即使是很小的位置差异也会变得非常显著。</p>
-<p>因此，这种频率调制确保了序列中每个单词的位置嵌入保持唯一性，为模型提供了单词位置之间的强有力区分，这对于在复杂序列中保持上下文完整性至关重要。</p>
-<h4 id="双正弦方法同时使用正弦和余弦">双正弦方法：同时使用正弦和余弦</h4>
-<p>为了进一步增强区分度，作者 以下是关于Transformer模型生成嵌入的思路的梳理：</p>
-<h2 id="一输入处理-1">一、输入处理</h2>
-<p>输入处理是Transformer模型嵌入生成的第一步，目的是将文本转换为模型能够处理的数值形式。 - <strong>构建词汇表</strong>：从训练数据中提取所有不重复的单词，形成一个词汇表，并为每个单词分配一个唯一的索引。例如，对于包含“生活”、“平衡”、“自行车”等词汇的训练数据，词汇表会将这些单词映射到对应的索引。 - <strong>分词与索引映射</strong>：将输入文本分词，并将每个单词替换为词汇表中的索引。如输入文本“生活就像骑自行车”，分词后得到“生活”、“像”、“骑”、“自行车”，然后根据词汇表分别映射为对应的索引，形成一个索引序列。</p>
-<h2 id="二词嵌入-1">二、词嵌入</h2>
-<p>词嵌入是将索引序列转换为向量表示的过程，使模型能够捕捉单词的语义信息。 - <strong>嵌入层的作用</strong>：嵌入层是一个矩阵，其行数等于词汇表大小，列数为嵌入维度（如512维）。它将输入的索引映射为对应的嵌入向量。例如，索引1对应的行向量就是单词“生活”的嵌入向量。 - <strong>学习语义关系</strong>：在训练过程中，嵌入层的权重会不断调整，使得语义相似的单词在嵌入空间中距离更近。比如，“骑”和“自行车”因常一起出现，其嵌入向量会逐渐靠近，从而让模型理解它们之间的语义关联。</p>
-<h2 id="三位置嵌入-1">三、位置嵌入</h2>
-<p>由于Transformer模型本身不处理序列的顺序信息，因此需要位置嵌入来为模型提供单词顺序的感知。 - <strong>位置嵌入的必要性</strong>：单词的位置会影响其意义。例如，“苹果”在“我吃了一个苹果”和“苹果公司发布了新产品”中含义不同。位置嵌入通过为每个单词赋予与其位置相关的唯一向量，使模型能够捕捉到这种顺序信息。 - <strong>正弦位置编码</strong>：Transformer模型采用正弦和余弦函数生成位置嵌入。对于每个位置pos和维度i，位置嵌入的计算公式为： - 偶数维度：PE(pos, 2i) = sin(pos / 10000^(2i/d_model)) - 奇数维度：PE(pos, 2i+1) = cos(pos / 10000^(2i/d_model)) 其中d_model是模型的嵌入维度。这种编码方式具有周期性，能够处理比训练时更长的序列，同时保持位置信息的一致性。</p>
-<h2 id="四嵌入向量的整合">四、嵌入向量的整合</h2>
-<p>将词嵌入和位置嵌入相加，得到最终的嵌入向量，作为Transformer模型的输入。 - <strong>相加操作</strong>：对于每个单词，将其词嵌入向量与对应位置的位置嵌入向量相加。例如，单词“生活”在句子中的位置为0，其词嵌入向量为E_word，位置嵌入向量为PE(0)，则最终的嵌入向量为E_word + PE(0)。 - <strong>模型输入</strong>：经过相加操作后得到的嵌入向量序列，包含了单词的语义信息和位置信息，被送入Transformer模型的后续层进行进一步处理。</p>
+                <p>我们通常使用hexo框架插入图片时，图片通常会被保存到一个绝对路径的文件夹下<code>\source\images</code>, 这样比较麻烦，这里介绍一种可以直接在插入保存到粘贴板中的方法。</p>
+<h4 id="首先使用hexo-new命令来创建文章比如我使用">首先使用<code>hexo new</code>命令来创建文章，比如我使用</h4>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gradle">hexo <span class="hljs-keyword">new</span> post hexo+vscode实现快速图片插入 -p essays<span class="hljs-regexp">/Hexo/</span>hexo快速图片插入<br></code></pre></td></tr></table></figure>
+<p>该命令会新建一个md文件和与md文件同名的文件夹，我们就可以使用该文件夹来储存图片。</p>
+<h4 id="然后在扩展中新增paste-image插件同时在vscode-的settings.json新加配置">然后在扩展中新增paste image插件，同时在vscode 的settings.json新加配置:</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-string">&quot;pasteImage.path&quot;</span>: <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;currentFileDir&#125;</span>/<span class="hljs-variable">$&#123;currentFileNameWithoutExt&#125;</span>&quot;</span> <br><br></code></pre></td></tr></table></figure>
+<h4 id="然后使用快捷键ctrl-alt-v就可以快速保存图片并且插入图片url">然后使用快捷键ctrl-alt-v就可以快速保存图片并且插入图片url。</h4>
+<p><img src="2025-04-11-17-18-08.png" srcset="/img/loading.gif" lazyload /></p>
 
                 
               </div>
@@ -386,12 +336,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/ReadingNotes/" class="category-chain-item">ReadingNotes</a>
+  <a href="/categories/essays/" class="category-chain-item">essays</a>
   
   
     <span>></span>
     
-  <a href="/categories/ReadingNotes/rag/" class="category-chain-item">rag</a>
+  <a href="/categories/essays/Hexo/" class="category-chain-item">Hexo</a>
   
   
 
@@ -413,8 +363,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>CogLTX-Applting BERT to LOng Texts 论文阅读 And 大模型编码梳理</div>
-      <div>http://yangyihui2020.github.io/2025/04/11/ReadingNotes/rag/CogLTX-Applting BERT to LOng Texts And 大模型编码梳理/</div>
+      <div>hexo+vscode实现快速图片插入</div>
+      <div>http://yangyihui2020.github.io/2025/04/11/essays/Hexo/hexo快速图片插入/</div>
     </div>
     <div class="license-meta">
       
@@ -458,18 +408,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/04/11/project/test1/" title="test">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">test</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/04/07/ReadingNotes/rag/rag_eval/" title="基于ragas和evalscope实现rag快速评测">
-                        <span class="hidden-mobile">基于ragas和evalscope实现rag快速评测</span>
+                      <a href="/2025/04/11/essays/Hexo/hexo%E6%96%B0%E5%BB%BA%E6%96%87%E7%AB%A0%E5%88%B0%E6%8C%87%E5%AE%9A%E7%9B%AE%E5%BD%95/" title="hexo新建文章到指定目录的方式">
+                        <span class="hidden-mobile">hexo新建文章到指定目录的方式</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
