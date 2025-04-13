@@ -4,6 +4,48 @@
   
   
   <entry>
+    <title>mysql+vscode环境配置</title>
+    <link href="/2025/04/13/essays/%E9%9A%8F%E7%AC%94/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    <url>/2025/04/13/essays/%E9%9A%8F%E7%AC%94/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
+    
+    <content type="html"><![CDATA[<h1 id="mysqlvscode环境配置">mysql+vscode环境配置</h1><h2 id="mysql安装">1. mysql安装</h2><div class="note note-info">            <p>文章的系统环境为win11</p>          </div><p>1.下载<a href="https://downloads.mysql.com/archives/installer/">mysql80</a></p><p><img src="2025-04-13-18-51-30.png" /></p><p>2.下载完成后双击安装</p><p>3.选择Custom安装（如果你内存充足，可以直接选Full) <img src="2025-04-13-19-00-48.png" /> 4.选择想要安装的产品（注意server和workbench是必须的） <img src="2025-04-13-19-00-28.png" /></p><div class="note note-info">            <p>注意这里有一个很小的选项<code>Advanced Options</code>,可以更改你的安装路径</p>          </div><p>5.选完之后直接点执行就可开始安装了 <img src="2025-04-13-19-04-32.png" /></p><p>6.然后就是一路 <code>next</code>,然后开始设置你的root密码 <img src="2025-04-13-19-07-16.png" /> 设置完之后还是一路<code>next</code>,就可以完成你的mysql安装了</p><div class="note note-info">            <p>有同学会在检查依赖卡住，只需要通过安装界面提示安装所需库。 比如显示缺少库<a href="https://aka.ms/vs/17/release/vc_redist.x86.exe">VC_redist_x64</a>，下载安装即 可。</p>          </div><h2 id="二配置环境变量与验证mysql可用性">二、配置环境变量与验证mysql可用性</h2><p>这个时候大家打开命令行, 直接输入 mysql会报错，因为还没有设置相关的环境变量。 <img src="2025-04-13-19-11-31.png" /></p><p>1.进入mysql的安装地址，比如我的就是<code>D:\MySQL</code>，该地址下会安装有mysql的exe可执行文件</p><p><img src="2025-04-13-19-14-14.png" /></p><p>2.复制该地址，然后将其添加到系统变量的PATH中 <img src="2025-04-13-19-18-06.png" /> 3.然后重新打开一个终端，这时输入mysql就可用了</p><div class="note note-info">            <p>如果还是不行，可以重启电脑再试试</p>          </div><p>4.从命令行连接mysql 使用<code>mysql -u &lt;usr_name&gt; -p</code>登录</p><p>因为这里我还没有新建用户，所以登录用户就是root，登录密码就是刚刚安装mysql所用的密码，登录如下： <img src="2025-04-13-19-21-49.png" /></p><h2 id="三在vscode中使用mysql">三、在vscode中使用mysql</h2><div class="note note-info">            <p>mysql可以直接在命令行中使用，也可以在workbench中使用，这里就不一一介绍相关用法了，感兴趣的同学可以自行百度，这里主要介绍在vscode中使用mysql</p>          </div><h3 id="mysql环境准备">mysql环境准备</h3><p>1.安装插件 在vscode中安装以下两个插件 <img src="2025-04-13-19-29-20.png" /> 2.连接mysql 安装完左边会出现database的选项，点击即可进行连接 <img src="2025-04-13-19-30-45.png" /></p><p>3.服务类型选<code>Mysql</code>,然后按照你的偏好设置相关配置（如果不出意外的话，这里你只需要填写你的root密码，其他的使用默认的即可） <img src="2025-04-13-19-33-07.png" /></p><p>4.连接成功后左边会如图所示 <img src="2025-04-13-19-34-42.png" /></p><p>5.然后就可以创建一个数据库。比如我这里创建一个数据库名为<code>lab1</code>，点击对应的按钮，修改数据库名，然后点击<code>run</code>，就可以创建数据库</p><p><img src="2025-04-13-19-36-24.png" /> 5. <img src="2025-04-13-19-36-58.png" /></p><h3 id="在vscode中运行mysql">在vscode中运行mysql</h3><p>1.你可以在vscode中直接创建表 <img src="2025-04-13-19-41-25.png" /></p><p>2.也可以直接进行查询 <img src="2025-04-13-19-43-07.png" /></p><div class="note note-info">            <p>其他操作感兴趣的同学可以自行尝试</p>          </div><h2 id="写在最后">写在最后</h2><p>有需要的同学可以参考其他相关教程</p><ul><li><a href="https://juejin.cn/post/6844903831298375693">MAC安装mysql教程</a>、</li><li><a href="https://blog.csdn.net/weixx3/article/details/80782479">ubuntu安装mysql教程</a></li><li><a href="https://runoob.com/mysql/mysql-install.html">mysql安装</a></li><li><a href="https://www.jianshu.com/p/118e1c41e9f0">sql命令参考</a></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>essays</category>
+      
+      <category>随笔</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Texts</title>
+    <link href="/2025/04/13/ReadingNotes/rag/CogLTX/"/>
+    <url>/2025/04/13/ReadingNotes/rag/CogLTX/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>ReadingNotes</category>
+      
+      <category>rag</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hello World</title>
     <link href="/2025/04/13/hello-world/"/>
     <url>/2025/04/13/hello-world/</url>
