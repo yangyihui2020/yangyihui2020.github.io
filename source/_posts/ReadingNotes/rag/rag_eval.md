@@ -7,8 +7,6 @@ categories: [ReadingNotes,rag]
 
 
 
-以下是重新组织后的语言，并使用了 Markdown 格式：
-
 ---
 
 ### Ragas 评估工具概述

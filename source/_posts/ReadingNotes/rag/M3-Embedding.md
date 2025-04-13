@@ -22,10 +22,13 @@ M3-Embedding统一了文本嵌入模型的常见检索功能，包括密集检�
 
 
 #### 词汇检索（Lexical Retrieval. ）
-- 对于query中的每个token $t$，其权重的计算公式为 
+- 对于query中的每个token $t$，其权重的计算公式为
+
 $$
 w_{q_t} \leftarrow\text{Relu}(\mathbf{W}_{\text{lex}}^T \mathbf{H_q}[i])
 $$
+
+
 - 其中 $\mathbf{W}_{\text{lex}} \in \mathbb{R}^{d \times 1}$ 是将隐藏状态映射到浮点数的矩阵。
 - 如果某个token $t$ 在query中多次出现，只保留其最大权重。并使用相同的方法来计算passage中每个token的权重。
 - 因此query和passage之间的相关性分数是通过query和passage中共存token（表示为 $q \cap p$）的联合重要性来计算的：
@@ -70,10 +73,10 @@ $$
 \mathcal{L}_{s(\cdot)} = -\log \frac{\exp(s(q, p^*) / \tau)} {\sum_{p \in \{p^*, p'\}} \exp(s(q, p) / \tau)}
 $$
 
-这里，$p^*$ 和 $p'$ 代表查询 $q$ 的正样本和负样本；$s(\cdot)$ 是 $\{s_{\text{dense}}(\cdot)$，$s_{\text{lex}}(\cdot)$，$s_{\text{mul}}(\cdot)$ 中的任何函数。
+这里，$p^*$ 和 $p'$ 代表查询 $q$ 的正样本和负样本
 
+$s(\cdot)$ 是 $\{s_{\text{dense}}(\cdot)$,$s_{\text{lex}}(\cdot)$,$s_{\text{mul}}(\cdot)$ 中的任何函数。
 
-Self-Knowledge Distillation中提出的损失函数如下：
 - 不同检索方法的训练目标可能与各自的方法相互冲突。因此，原生多目标训练可能不利于嵌入的质量。为了促进多个检索函数的优化，作者建议在自我知识蒸馏之上统一训练过程。在最简单的形式中，积分可以是不同预测分数的加权和：
 
 $$
@@ -90,7 +93,10 @@ $$
 \mathcal{L}' \leftarrow \left( \lambda_1 \cdot \mathcal{L}'_{\text{dense}} + \lambda_2 \cdot \mathcal{L}'_{\text{lex}} + \lambda_3 \cdot \mathcal{L}'_{\text{mul}} \right) / 3.
 $$
 
-最后，用 $\mathcal{L}$ 和的 $\mathcal{L}'$ 线性组合推导出自我知识蒸馏的最终损失函数：$\mathcal{L}_{\text{final}} \leftarrow \left( \mathcal{L} + \mathcal{L}' \right) / 2$。
+最后，用 $\mathcal{L}$ 和的 $\mathcal{L}'$ 线性组合推导出自我知识蒸馏的最终损失函数：
+$$
+\mathcal{L}_{\text{final}} \leftarrow \left( \mathcal{L} + \mathcal{L}' \right) / 2
+$$
 
 
 #### 训练过程
@@ -99,4 +105,4 @@ $$
 
 在第二阶段应用自知识蒸馏，其中嵌入模型被微调以建立三个检索功能。$\mathbf{W}_{\text{lex}}$的随机初始化导致$s_{\text{lex}}$准确性差和训练开始时的$\mathcal{L}_{\text{lex}}$高。
 
-![alt text](image.png)
+![](/images/m3-embedding训练过程.png)

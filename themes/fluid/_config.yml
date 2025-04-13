@@ -1136,3 +1136,7 @@ post_asset_folder: true
 marked:
   prependRoot: true
   postAsset: true
+
+# markdown:
+#   plugins:
+#     - "@traptitech/markdown-it-katex"
