@@ -19,12 +19,12 @@
   <meta name="author" content="yihui">
   <meta name="keywords" content="">
   
-    <meta name="description" content="RAG 检索增强生成技术背景介绍 RAG（Retrieval-Augmented Generation，检索增强生成） 是一种结合了信息检索技术与语言生成模型的人工智能技术。该技术通过从外部知识库中检索相关信息，并将其作为提示（Prompt）输入给大型语言模型（LLMs），以增强模型处理知识密集型任务的能力，如问答、文本摘要、内容生成等。RAG模型由Facebook AI Research（FA">
+    <meta name="description" content="RAG 检索增强生成技术背景介绍RAG（Retrieval-Augmented Generation，检索增强生成） 是一种结合了信息检索技术与语言生成模型的人工智能技术。该技术通过从外部知识库中检索相关信息，并将其作为提示（Prompt）输入给大型语言模型（LLMs），以增强模型处理知识密集型任务的能力，如问答、文本摘要、内容生成等。RAG模型由Facebook AI Research（FAIR">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks">
 <meta property="og:url" content="http://yangyihui2020.github.io/2025/02/24/ReadingNotes/rag/Retrieval-Augmented%20Generation%20for%20%20Knowledge-Intensive%20NLP%20Tasks/">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="RAG 检索增强生成技术背景介绍 RAG（Retrieval-Augmented Generation，检索增强生成） 是一种结合了信息检索技术与语言生成模型的人工智能技术。该技术通过从外部知识库中检索相关信息，并将其作为提示（Prompt）输入给大型语言模型（LLMs），以增强模型处理知识密集型任务的能力，如问答、文本摘要、内容生成等。RAG模型由Facebook AI Research（FA">
+<meta property="og:description" content="RAG 检索增强生成技术背景介绍RAG（Retrieval-Augmented Generation，检索增强生成） 是一种结合了信息检索技术与语言生成模型的人工智能技术。该技术通过从外部知识库中检索相关信息，并将其作为提示（Prompt）输入给大型语言模型（LLMs），以增强模型处理知识密集型任务的能力，如问答、文本摘要、内容生成等。RAG模型由Facebook AI Research（FAIR">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yangyihui2020.github.io/images/rag.jpg">
 <meta property="og:image" content="http://yangyihui2020.github.io/images/RAG-Sequence-Model.png">
@@ -321,27 +321,27 @@
             
               <div class="markdown-body">
                 
-                <h1 id="rag-检索增强生成技术背景介绍">RAG 检索增强生成技术背景介绍</h1>
-<p>RAG（Retrieval-Augmented Generation，检索增强生成） 是一种结合了信息检索技术与语言生成模型的人工智能技术。该技术通过从外部知识库中检索相关信息，并将其作为提示（Prompt）输入给大型语言模型（LLMs），以增强模型处理知识密集型任务的能力，如问答、文本摘要、内容生成等。RAG模型由Facebook AI Research（FAIR）团队于2020年首次提出，并迅速成为大模型应用中的热门方案。(这篇论文可以说是RAG技术的开山之作)</p>
-<p><img src="/images/rag.jpg" srcset="/img/loading.gif" lazyload /></p>
-<p>RAG一般有3个步骤： 1. 检索：检索是RAG流程的第一步，从预先建立的知识库中检索与问题相关的信息。这一步的目的是为后续的生成过程提供有用的上下文信息和知识支撑。</p>
-<ol start="2" type="1">
-<li><p>增强：RAG中增强是将检索到的信息用作生成模型（即大语言模型）的上下文输入，以增强模型对特定问题的理解和回答能力。这一步的目的是将外部知识融入生成过程中，使生成的文本内容更加丰富、准确和符合用户需求。通过增强步骤，LLM模型能够充分利用外部知识库中的信息。</p></li>
-<li><p>生成：生成是RAG流程的最后一步。这一步的目的是结合LLM生成符合用户需求的回答。生成器会利用检索到的信息作为上下文输入，并结合大语言模型来生成文本内容。</p></li>
+                <h1 id="RAG-检索增强生成技术背景介绍"><a href="#RAG-检索增强生成技术背景介绍" class="headerlink" title="RAG 检索增强生成技术背景介绍"></a>RAG 检索增强生成技术背景介绍</h1><p>RAG（Retrieval-Augmented Generation，检索增强生成） 是一种结合了信息检索技术与语言生成模型的人工智能技术。该技术通过从外部知识库中检索相关信息，并将其作为提示（Prompt）输入给大型语言模型（LLMs），以增强模型处理知识密集型任务的能力，如问答、文本摘要、内容生成等。RAG模型由Facebook AI Research（FAIR）团队于2020年首次提出，并迅速成为大模型应用中的热门方案。(这篇论文可以说是RAG技术的开山之作)</p>
+<p><img src="/images/rag.jpg" srcset="/img/loading.gif" lazyload></p>
+<p>RAG一般有3个步骤：</p>
+<ol>
+<li><p>检索：检索是RAG流程的第一步，从预先建立的知识库中检索与问题相关的信息。这一步的目的是为后续的生成过程提供有用的上下文信息和知识支撑。</p>
+</li>
+<li><p>增强：RAG中增强是将检索到的信息用作生成模型（即大语言模型）的上下文输入，以增强模型对特定问题的理解和回答能力。这一步的目的是将外部知识融入生成过程中，使生成的文本内容更加丰富、准确和符合用户需求。通过增强步骤，LLM模型能够充分利用外部知识库中的信息。</p>
+</li>
+<li><p>生成：生成是RAG流程的最后一步。这一步的目的是结合LLM生成符合用户需求的回答。生成器会利用检索到的信息作为上下文输入，并结合大语言模型来生成文本内容。</p>
+</li>
 </ol>
-<h1 id="rag-retrieval-augmented-generation-for-knowledge-intensive-nlp-tasks">RAG Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</h1>
-<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2005.11401">文章链接</a></p>
-<h2 id="研究背景">研究背景</h2>
-<p>这篇文章的研究背景是大型预训练语言模型虽然能够在下游NLP任务中存储事实性知识并取得优异表现，但在访问和精确操作知识方面仍然有限。因此，在知识密集型任务中，这些模型的表现落后于特定任务的架构。此外，提供决策的可追溯性和更新世界知识仍然是开放的研究问题。</p>
-<p>文章着眼于此，提出的RAG模型通过结合预训练的参数化记忆和非参数化记忆，在知识密集型NLP任务中取得了显著的性能提升。 ## 研究方法</p>
-<p>这篇论文提出了两种RAG模型：RAG-Sequence和RAG-Token，用于解决知识密集型任务中的生成问题：</p>
-<ol type="1">
-<li>​<strong>RAG-Sequence模型:</strong>​ 该模型使用相同的检索文档来生成整个序列。它将检索到的文档视为一个单一的潜在变量，并通过top-K近似来边缘化以获得seq2seq概率。 <img src="/images/RAG-Sequence-Model.png" srcset="/img/loading.gif" lazyload alt="RAG-Sequence-Model相应公式" /></li>
-<li>​<strong>RAG-Token模型:</strong>​ 该模型为每个目标标记抽取不同的潜在文档，并相应地进行边缘化。这允许生成器在生成答案时从多个文档中选择内容。具体来说，使用检索器检索前 K 个文档，然后生成器为每个文档的下一个输出标记生成一个分布，然后边缘化，并使用以下输出标记重复该过程。 <img src="/images/RAG-Token-Model.png" srcset="/img/loading.gif" lazyload alt="alt text" /></li>
+<h1 id="RAG-Retrieval-Augmented-Generation-for-Knowledge-Intensive-NLP-Tasks"><a href="#RAG-Retrieval-Augmented-Generation-for-Knowledge-Intensive-NLP-Tasks" class="headerlink" title="RAG Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"></a>RAG Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</h1><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2005.11401">文章链接</a></p>
+<h2 id="研究背景"><a href="#研究背景" class="headerlink" title="研究背景"></a>研究背景</h2><p>这篇文章的研究背景是大型预训练语言模型虽然能够在下游NLP任务中存储事实性知识并取得优异表现，但在访问和精确操作知识方面仍然有限。因此，在知识密集型任务中，这些模型的表现落后于特定任务的架构。此外，提供决策的可追溯性和更新世界知识仍然是开放的研究问题。</p>
+<p>文章着眼于此，提出的RAG模型通过结合预训练的参数化记忆和非参数化记忆，在知识密集型NLP任务中取得了显著的性能提升。</p>
+<h2 id="研究方法"><a href="#研究方法" class="headerlink" title="研究方法"></a>研究方法</h2><p>这篇论文提出了两种RAG模型：RAG-Sequence和RAG-Token，用于解决知识密集型任务中的生成问题：</p>
+<ol>
+<li>​**RAG-Sequence模型:**​ 该模型使用相同的检索文档来生成整个序列。它将检索到的文档视为一个单一的潜在变量，并通过top-K近似来边缘化以获得seq2seq概率。<br><img src="/images/RAG-Sequence-Model.png" srcset="/img/loading.gif" lazyload alt="RAG-Sequence-Model相应公式"></li>
+<li>​**RAG-Token模型:**​ 该模型为每个目标标记抽取不同的潜在文档，并相应地进行边缘化。这允许生成器在生成答案时从多个文档中选择内容。具体来说，使用检索器检索前 K 个文档，然后生成器为每个文档的下一个输出标记生成一个分布，然后边缘化，并使用以下输出标记重复该过程。<br><img src="/images/RAG-Token-Model.png" srcset="/img/loading.gif" lazyload alt="alt text"></li>
 </ol>
-<p>检索器：使用DPR（Dense Passage Retriever）作为检索组件，采用双向编码器架构，通过最大内积搜索（MIPS）问题近似求解top-K文档。 <img src="/images/Retriever.png" srcset="/img/loading.gif" lazyload alt="alt text" /> 生成器：使用BART-large作为生成器组件，通过连接输入和检索内容来生成输出。</p>
-<h2 id="实验">实验</h2>
-<p>实验采用了多个知识密集型NLP任务的数据集，包括自然问题（NQ）、TriviaQA（TQA）、WebQuestions（WQ）、CuratedTrec（CT）、MS-MARCO、Jeopardy问题生成和FEVER。</p>
+<p>检索器：使用DPR（Dense Passage Retriever）作为检索组件，采用双向编码器架构，通过最大内积搜索（MIPS）问题近似求解top-K文档。<br><img src="/images/Retriever.png" srcset="/img/loading.gif" lazyload alt="alt text"><br>生成器：使用BART-large作为生成器组件，通过连接输入和检索内容来生成输出。</p>
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p>实验采用了多个知识密集型NLP任务的数据集，包括自然问题（NQ）、TriviaQA（TQA）、WebQuestions（WQ）、CuratedTrec（CT）、MS-MARCO、Jeopardy问题生成和FEVER。</p>
 
                 
               </div>

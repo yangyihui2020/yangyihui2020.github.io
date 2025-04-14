@@ -19,16 +19,16 @@
   <meta name="author" content="yihui">
   <meta name="keywords" content="">
   
-    <meta name="description" content="这是一篇来自Nips20的文章，提出了CogLTX框架，旨在解决BERT模型处理长文本时的内存和时间消耗问题。 研究背景 BERT模型在处理长文本时面临内存和时间消耗呈二次增长的局限性。  长文本的直接预训练的最大位置嵌入通常在BERT模型中限制为512个标记。 然而，即使提供了更大位置的嵌入，由于在训练期间需要存储所有激活以进行反向传播，内存消耗仍然可能无法承受。例如，一个包含500个">
+    <meta name="description" content="这是一篇来自Nips20的文章，提出了CogLTX框架，旨在解决BERT模型处理长文本时的内存和时间消耗问题。 研究背景BERT模型在处理长文本时面临内存和时间消耗呈二次增长的局限性。  长文本的直接预训练的最大位置嵌入通常在BERT模型中限制为512个标记。 然而，即使提供了更大位置的嵌入，由于在训练期间需要存储所有激活以进行反向传播，内存消耗仍然可能无法承受。例如，一个包含500个标记的文本即">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CogLTX Applying BERT to Long Texts">
 <meta property="og:url" content="http://yangyihui2020.github.io/2025/04/13/ReadingNotes/rag/CogLTX/">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="这是一篇来自Nips20的文章，提出了CogLTX框架，旨在解决BERT模型处理长文本时的内存和时间消耗问题。 研究背景 BERT模型在处理长文本时面临内存和时间消耗呈二次增长的局限性。  长文本的直接预训练的最大位置嵌入通常在BERT模型中限制为512个标记。 然而，即使提供了更大位置的嵌入，由于在训练期间需要存储所有激活以进行反向传播，内存消耗仍然可能无法承受。例如，一个包含500个">
+<meta property="og:description" content="这是一篇来自Nips20的文章，提出了CogLTX框架，旨在解决BERT模型处理长文本时的内存和时间消耗问题。 研究背景BERT模型在处理长文本时面临内存和时间消耗呈二次增长的局限性。  长文本的直接预训练的最大位置嵌入通常在BERT模型中限制为512个标记。 然而，即使提供了更大位置的嵌入，由于在训练期间需要存储所有激活以进行反向传播，内存消耗仍然可能无法承受。例如，一个包含500个标记的文本即">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yangyihui2020.github.io/2025/04/13/ReadingNotes/rag/CogLTX/2025-04-14-15-29-13.png">
 <meta property="article:published_time" content="2025-04-13T08:39:52.000Z">
-<meta property="article:modified_time" content="2025-04-14T07:29:29.997Z">
+<meta property="article:modified_time" content="2025-04-14T07:33:49.305Z">
 <meta property="article:author" content="yihui">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://yangyihui2020.github.io/2025/04/13/ReadingNotes/rag/CogLTX/2025-04-14-15-29-13.png">
@@ -319,70 +319,62 @@
               <div class="markdown-body">
                 
                 <p>这是一篇来自Nips20的文章，提出了CogLTX框架，旨在解决BERT模型处理长文本时的内存和时间消耗问题。</p>
-<h2 id="研究背景">研究背景</h2>
-<p>BERT模型在处理长文本时面临内存和时间消耗呈二次增长的局限性。</p>
+<h2 id="研究背景"><a href="#研究背景" class="headerlink" title="研究背景"></a>研究背景</h2><p>BERT模型在处理长文本时面临内存和时间消耗呈二次增长的局限性。</p>
 <ul>
 <li>长文本的直接预训练的最大位置嵌入通常在BERT模型中限制为512个标记。</li>
 <li>然而，即使提供了更大位置的嵌入，由于在训练期间需要存储所有激活以进行反向传播，内存消耗仍然可能无法承受。例如，一个包含500个标记的文本即使批量大小为1，也需要大约14.6GB的内存来运行BERT-large模型，这超出了常见GPU的容量（例如RTX 2080ti为11GB）。</li>
-<li>此外，计算复杂度<span class="math inline"><em>O</em>(<em>L</em><sup>2</sup>)</span>随着文本长度L的增加而迅速增长，这进一步加剧了长文本处理的挑战。</li>
+<li>此外，计算复杂度$O(L^2)$随着文本长度L的增加而迅速增长，这进一步加剧了长文本处理的挑战。</li>
 </ul>
 <p>现有的解决方案如滑动窗口或简化变换器存在长距离注意力不足或需要定制CUDA内核的问题。</p>
-<h2 id="方法">方法</h2>
-<p>这篇论文提出了一种名为 <strong>CogLTX</strong> 的框架，旨在将 BERT 应用于长文本处理。其方法论基于人类认知理论，通过模拟人类工作记忆（Working Memory）的机制来处理长文本。</p>
-<h3 id="cogltx-的核心假设">CogLTX 的核心假设</h3>
-<p>CogLTX 的核心假设是： - <strong>关键句子假设</strong>：对于大多数 NLP 任务，长文本中只有少数关键句子包含完成任务所需的信息。这些关键句子可以被提取并组合成一个较短的文本 <span class="math inline"><em>z</em></span>，满足： <br /><span class="math display">$$
-  \text{reasoner}(x^+) \approx \text{reasoner}(z^+)\\
-  $$</span><br /> 其中 <span class="math inline"><em>x</em><sup>+</sup></span> 和 <span class="math inline"><em>z</em><sup>+</sup></span> 分别长文本 <span class="math inline"><em>x</em></span> 和关键文本 <span class="math inline"><em>z</em></span> 针对 BERT 的输入。</p>
-<h3 id="cogltx-的关键组件"><strong>CogLTX 的关键组件</strong></h3>
-<p>CogLTX 包含两个主要组件：<strong>MemRecall</strong> 和 <strong>Judge</strong>。</p>
-<h4 id="memrecall"><strong>MemRecall</strong></h4>
-<p>MemRecall 是一个模拟人类工作记忆的过程，负责从长文本 <span class="math inline"><em>x</em></span> 中提取关键文本块 <span class="math inline"><em>z</em></span>。其工作流程如下：</p>
-<ol type="1">
-<li><strong>输入</strong>：长文本 <span class="math inline"><em>x</em></span> 和初始关键文本 <span class="math inline"><em>z</em><sup>+</sup></span>。</li>
-<li><strong>检索竞争（Retrieval Competition）</strong>：
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>这篇论文提出了一种名为 <strong>CogLTX</strong> 的框架，旨在将 BERT 应用于长文本处理。其方法论基于人类认知理论，通过模拟人类工作记忆（Working Memory）的机制来处理长文本。</p>
+<h3 id="CogLTX-的核心假设"><a href="#CogLTX-的核心假设" class="headerlink" title="CogLTX 的核心假设"></a>CogLTX 的核心假设</h3><p>CogLTX 的核心假设是：</p>
 <ul>
-<li>对每个文本块 <span class="math inline"><em>x</em><sub><em>i</em></sub></span>，计算其与当前 <span class="math inline"><em>z</em><sup>+</sup></span> 的相关性分数： <br /><span class="math display">$$
-\text{score}[x_i] = \text{judge}([z^+ \text{SEP} x_i])[x_i]\\
-$$</span><br /></li>
-<li>选择分数最高的若干块加入 <span class="math inline"><em>z</em></span>，直到 <span class="math inline"><em>z</em><sup>+</sup></span> 的长度超过 BERT 的最大长度限制 $ L $。</li>
-</ul></li>
-<li><strong>复习与衰减（Rehearsal &amp; Decay）</strong>：
-<ul>
-<li>对已加入 $ z $ 的每个块 $ z_i $，重新计算其在 $ z^+ $ 中的细粒度相关性分数： <br /><span class="math display">$$
-\text{score}[z_i] = \text{judge}(z^+)[z_i]\\
-$$</span><br /></li>
-<li>保留分数最高的若干块，其余块从 $ z $ 中移除。</li>
-</ul></li>
-<li><strong>多步推理（Multi-step Reasoning）</strong>：
-<ul>
-<li>通过重复上述过程，逐步扩展 $ z $，直到满足任务需求。</li>
-</ul></li>
-</ol>
-<h4 id="judge"><strong>Judge</strong></h4>
-<p>Judge 是一个 BERT 模型，用于评估$ z^+ $中每个文本块的相关性。 <br /><span class="math display">$$
-\text{judge}(\mathbf{z}^+) = \text{sigmoid}(\text{MLP}(\text{BERT}(\mathbf{z}^+))) \in (0, 1)^{\text{len}(\mathbf{z}^+)}\\\
-$$</span><br /> 其中，<img src="2025-04-14-15-29-13.png" srcset="/img/loading.gif" lazyload /> MLP 是一个简单的多层感知机，用于将 BERT 的输出映射到相关性分数。</p>
-<h2 id="训练方法"><strong>训练方法</strong></h2>
-<p>CogLTX 的训练分为两种情况：有监督训练和无监督训练。</p>
-<h3 id="有监督训练"><strong>有监督训练</strong></h3>
-<p>对于有标注的任务（如问答任务），可以直接使用标注信息训练 Judge 和 Reasoner： - <strong>Judge 的损失函数</strong>： <br /><span class="math display">$$
-  \text{loss}_{\text{judge}}(z) = \text{CrossEntropy}(\text{judge}(z^+), \text{relv\_label}(z^+))\\
-  $$</span><br /> 其中，<span class="math inline">relv_label(<em>z</em><sup>+</sup>)</span> 是标注的相关性标签。 - <strong>Reasoner 的损失函数</strong>： <br /><span class="math display">$$
-  \text{loss}_{\text{reasoner}} = \text{CrossEntropy}(\text{reasoner}(z^+), y)\\
-  $$</span><br /></p>
-<h3 id="无监督训练"><strong>无监督训练</strong></h3>
-<p>对于没有标注的任务，CogLTX 通过干预（Intervention）来推断相关性标签： - <strong>干预方法</strong>： - 对于每个块 $ z_i $，计算移除该块后的损失变化：</p>
-<p><br /><span class="math display">$$
-\Delta \text{loss}=f(z^+ - z_i)- f((z^+));   \\ 
-f=\text{loss}_{\text{reasoner}}
-$$</span><br /></p>
-<ul>
-<li>如果 <span class="math inline"><em>Δ</em>loss &gt; <em>t</em><sub>up</sub></span>，则标记 $ z_i $ 为相关；如果 <span class="math inline"><em>Δ</em>loss &lt; <em>t</em><sub>down</sub></span>，则标记为不相关。</li>
+<li><strong>关键句子假设</strong>：对于大多数 NLP 任务，长文本中只有少数关键句子包含完成任务所需的信息。这些关键句子可以被提取并组合成一个较短的文本 $z$，满足：<br>$$<br>\text{reasoner}(x^+) \approx \text{reasoner}(z^+)\<br>$$<br>其中 $x^+$ 和 $z^+$ 分别长文本 $x$ 和关键文本 $z$ 针对 BERT 的输入。</li>
 </ul>
-<h2 id="实验验证"><strong>实验验证</strong></h2>
-<p>CogLTX 在多个长文本任务上进行了实验验证，包括： - <strong>阅读理解（NewsQA）</strong>：CogLTX 在 EM 和 F1 指标上均优于滑动窗口方法和其他基线模型。 - <strong>多跳问答（HotpotQA）</strong>：CogLTX 在多跳问答任务上表现优异，接近 SOTA 模型。 - <strong>文本分类（20NewsGroups）</strong>：CogLTX 在文本分类任务上优于其他基于 BERT 的方法。 - <strong>多标签分类（Alibaba 数据集）</strong>：CogLTX 在多标签分类任务上表现出色，优于常见基线模型。</p>
-<h2 id="总结"><strong>总结</strong></h2>
-<p>CogLTX 通过模拟人类工作记忆的机制，有效地解决了 BERT 在长文本处理中的内存和时间瓶颈问题。其关键在于通过 MemRecall 提取关键文本块，并通过 Judge 模型评估相关性。实验结果表明，CogLTX 在多个长文本任务上均取得了优异的性能，且内存消耗与文本长度无关。</p>
+<h3 id="CogLTX-的关键组件"><a href="#CogLTX-的关键组件" class="headerlink" title="CogLTX 的关键组件"></a><strong>CogLTX 的关键组件</strong></h3><p>CogLTX 包含两个主要组件：<strong>MemRecall</strong> 和 <strong>Judge</strong>。</p>
+<h4 id="MemRecall"><a href="#MemRecall" class="headerlink" title="MemRecall"></a><strong>MemRecall</strong></h4><p>MemRecall 是一个模拟人类工作记忆的过程，负责从长文本 $x$ 中提取关键文本块 $z$。其工作流程如下：</p>
+<ol>
+<li><strong>输入</strong>：长文本 $x$ 和初始关键文本 $z^+$。</li>
+<li><strong>检索竞争（Retrieval Competition）</strong>：<ul>
+<li>对每个文本块 $x_i$，计算其与当前 $z^+$ 的相关性分数：<br>$$<br>\text{score}[x_i] &#x3D; \text{judge}([z^+ \text{SEP} x_i])[x_i]\<br>$$</li>
+<li>选择分数最高的若干块加入 $z$，直到 $z^+$ 的长度超过 BERT 的最大长度限制 $ L $。</li>
+</ul>
+</li>
+<li><strong>复习与衰减（Rehearsal &amp; Decay）</strong>：<ul>
+<li>对已加入 $ z $ 的每个块 $ z_i $，重新计算其在 $ z^+ $ 中的细粒度相关性分数：<br>$$<br>\text{score}[z_i] &#x3D; \text{judge}(z^+)[z_i]\<br>$$</li>
+<li>保留分数最高的若干块，其余块从 $ z $ 中移除。</li>
+</ul>
+</li>
+<li><strong>多步推理（Multi-step Reasoning）</strong>：<ul>
+<li>通过重复上述过程，逐步扩展 $ z $，直到满足任务需求。</li>
+</ul>
+</li>
+</ol>
+<h4 id="Judge"><a href="#Judge" class="headerlink" title="Judge"></a><strong>Judge</strong></h4><p>Judge 是一个 BERT 模型，用于评估$ z^+ $中每个文本块的相关性。<br>$$<br>\text{judge}(\mathbf{z}^+) &#x3D; \text{sigmoid}(\text{MLP}(\text{BERT}(\mathbf{z}^+))) \in (0, 1)^{\text{len}(\mathbf{z}^+)}\<br>$$<br>其中，<img src="/2025/04/13/ReadingNotes/rag/CogLTX/2025-04-14-15-29-13.png" srcset="/img/loading.gif" lazyload><br>MLP 是一个简单的多层感知机，用于将 BERT 的输出映射到相关性分数。</p>
+<h2 id="训练方法"><a href="#训练方法" class="headerlink" title="训练方法"></a><strong>训练方法</strong></h2><p>CogLTX 的训练分为两种情况：有监督训练和无监督训练。</p>
+<h3 id="有监督训练"><a href="#有监督训练" class="headerlink" title="有监督训练"></a><strong>有监督训练</strong></h3><p>对于有标注的任务（如问答任务），可以直接使用标注信息训练 Judge 和 Reasoner：</p>
+<ul>
+<li><p><strong>Judge 的损失函数</strong>：<br>$$<br>\text{loss}_{\text{judge}}(z) &#x3D; \text{CrossEntropy}(\text{judge}(z^+), \text{relv_label}(z^+))\<br>$$<br>其中，$\text{relv_label}(z^+)$ 是标注的相关性标签。</p>
+</li>
+<li><p><strong>Reasoner 的损失函数</strong>：<br>$$<br>\text{loss}_{\text{reasoner}} &#x3D; \text{CrossEntropy}(\text{reasoner}(z^+), y)\<br>$$</p>
+</li>
+</ul>
+<h3 id="无监督训练"><a href="#无监督训练" class="headerlink" title="无监督训练"></a><strong>无监督训练</strong></h3><p>对于没有标注的任务，CogLTX 通过干预（Intervention）来推断相关性标签：</p>
+<ul>
+<li>对于每个块 $ z_i $，计算移除该块后的损失变化：</li>
+</ul>
+<p>$$<br>\Delta \text{loss}&#x3D;f(z^+ - z_i)- f((z^+));   \<br>f&#x3D;\text{loss}_{\text{reasoner}}<br>$$</p>
+<ul>
+<li>如果 $\Delta \text{loss} &gt; t_{\text{up}}$，则标记 $ z_i $ 为相关；如果 $\Delta \text{loss} &lt; t_{\text{down}}$，则标记为不相关。</li>
+</ul>
+<h2 id="实验验证"><a href="#实验验证" class="headerlink" title="实验验证"></a><strong>实验验证</strong></h2><p>CogLTX 在多个长文本任务上进行了实验验证，包括：</p>
+<ul>
+<li><strong>阅读理解（NewsQA）</strong>：CogLTX 在 EM 和 F1 指标上均优于滑动窗口方法和其他基线模型。</li>
+<li><strong>多跳问答（HotpotQA）</strong>：CogLTX 在多跳问答任务上表现优异，接近 SOTA 模型。</li>
+<li><strong>文本分类（20NewsGroups）</strong>：CogLTX 在文本分类任务上优于其他基于 BERT 的方法。</li>
+<li><strong>多标签分类（Alibaba 数据集）</strong>：CogLTX 在多标签分类任务上表现出色，优于常见基线模型。</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><p>CogLTX 通过模拟人类工作记忆的机制，有效地解决了 BERT 在长文本处理中的内存和时间瓶颈问题。其关键在于通过 MemRecall 提取关键文本块，并通过 Judge 模型评估相关性。实验结果表明，CogLTX 在多个长文本任务上均取得了优异的性能，且内存消耗与文本长度无关。</p>
 
                 
               </div>
