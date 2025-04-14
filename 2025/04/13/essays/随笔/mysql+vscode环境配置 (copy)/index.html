@@ -19,28 +19,41 @@
   <meta name="author" content="yihui">
   <meta name="keywords" content="">
   
-    <meta name="description" content="研究背景 这篇文章要解决的问题是如何设计一种多语言、多功能、多粒度的文本嵌入模型，以支持超过100种工作语言的语义检索，并能同时完成密集检索、多向量检索和稀疏检索等多种检索功能。 研究方法 混合检索 M3-Embedding统一了文本嵌入模型的常见检索功能，包括密集检索、词汇（稀疏）检索和多向量检索。这些功能不仅可以单独工作，还可以协同工作以获得更强的检索质量。 密集检索（Dense r">
+    <meta name="description" content="mysql+vscode环境配置 一、mysql安装 系统环境为win11  下载mysql80   下载完成后直接双击安装  Choosing a Setup Type  选择Custom安装（如果你内存充足，可以直接选Full)   选择想要安装的产品（注意server和workbench是必须的）   注意这里有一个很小的选项Advanced Options,可">
 <meta property="og:type" content="article">
-<meta property="og:title" content="M3-Embedding Multi-Linguality, Multi-Functionality, Multi-Granularity Text Embeddings Through Self-Knowledge Distillation">
-<meta property="og:url" content="http://yangyihui2020.github.io/2025/03/13/ReadingNotes/rag/M3-Embedding/">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yangyihui2020.github.io/2025/04/13/essays/%E9%9A%8F%E7%AC%94/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%20(copy)/">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="研究背景 这篇文章要解决的问题是如何设计一种多语言、多功能、多粒度的文本嵌入模型，以支持超过100种工作语言的语义检索，并能同时完成密集检索、多向量检索和稀疏检索等多种检索功能。 研究方法 混合检索 M3-Embedding统一了文本嵌入模型的常见检索功能，包括密集检索、词汇（稀疏）检索和多向量检索。这些功能不仅可以单独工作，还可以协同工作以获得更强的检索质量。 密集检索（Dense r">
+<meta property="og:description" content="mysql+vscode环境配置 一、mysql安装 系统环境为win11  下载mysql80   下载完成后直接双击安装  Choosing a Setup Type  选择Custom安装（如果你内存充足，可以直接选Full)   选择想要安装的产品（注意server和workbench是必须的）   注意这里有一个很小的选项Advanced Options,可">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yangyihui2020.github.io/2025/03/13/ReadingNotes/rag/M3-Embedding/2025-04-14-15-01-21.png">
-<meta property="og:image" content="http://yangyihui2020.github.io/2025/03/13/ReadingNotes/rag/M3-Embedding/2025-04-14-15-02-08.png">
-<meta property="og:image" content="http://yangyihui2020.github.io/2025/03/13/ReadingNotes/rag/M3-Embedding/2025-04-14-15-02-26.png">
-<meta property="og:image" content="http://yangyihui2020.github.io/images/m3-embedding%E8%AE%AD%E7%BB%83%E8%BF%87%E7%A8%8B.png">
-<meta property="article:published_time" content="2025-03-13T07:47:31.000Z">
-<meta property="article:modified_time" content="2025-04-14T07:03:52.555Z">
+<meta property="og:image" content="http://yangyihui2020.github.io/2025/04/13/essays/%E9%9A%8F%E7%AC%94/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%20(copy)/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/2025-04-13-18-51-30.png">
+<meta property="og:image" content="http://yangyihui2020.github.io/2025/04/13/essays/%E9%9A%8F%E7%AC%94/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%20(copy)/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/2025-04-13-19-00-48.png">
+<meta property="og:image" content="http://yangyihui2020.github.io/2025/04/13/essays/%E9%9A%8F%E7%AC%94/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%20(copy)/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/2025-04-13-19-00-28.png">
+<meta property="og:image" content="http://yangyihui2020.github.io/2025/04/13/essays/%E9%9A%8F%E7%AC%94/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%20(copy)/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/2025-04-13-19-04-32.png">
+<meta property="og:image" content="http://yangyihui2020.github.io/2025/04/13/essays/%E9%9A%8F%E7%AC%94/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%20(copy)/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/2025-04-13-19-07-16.png">
+<meta property="og:image" content="http://yangyihui2020.github.io/2025/04/13/essays/%E9%9A%8F%E7%AC%94/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%20(copy)/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/2025-04-13-19-11-31.png">
+<meta property="og:image" content="http://yangyihui2020.github.io/2025/04/13/essays/%E9%9A%8F%E7%AC%94/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%20(copy)/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/2025-04-13-19-14-14.png">
+<meta property="og:image" content="http://yangyihui2020.github.io/2025/04/13/essays/%E9%9A%8F%E7%AC%94/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%20(copy)/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/2025-04-13-19-18-06.png">
+<meta property="og:image" content="http://yangyihui2020.github.io/2025/04/13/essays/%E9%9A%8F%E7%AC%94/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%20(copy)/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/2025-04-13-19-21-49.png">
+<meta property="og:image" content="http://yangyihui2020.github.io/2025/04/13/essays/%E9%9A%8F%E7%AC%94/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%20(copy)/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/2025-04-13-19-29-20.png">
+<meta property="og:image" content="http://yangyihui2020.github.io/2025/04/13/essays/%E9%9A%8F%E7%AC%94/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%20(copy)/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/2025-04-13-19-30-45.png">
+<meta property="og:image" content="http://yangyihui2020.github.io/2025/04/13/essays/%E9%9A%8F%E7%AC%94/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%20(copy)/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/2025-04-13-19-33-07.png">
+<meta property="og:image" content="http://yangyihui2020.github.io/2025/04/13/essays/%E9%9A%8F%E7%AC%94/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%20(copy)/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/2025-04-13-19-34-42.png">
+<meta property="og:image" content="http://yangyihui2020.github.io/2025/04/13/essays/%E9%9A%8F%E7%AC%94/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%20(copy)/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/2025-04-13-19-36-24.png">
+<meta property="og:image" content="http://yangyihui2020.github.io/2025/04/13/essays/%E9%9A%8F%E7%AC%94/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%20(copy)/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/2025-04-13-19-36-58.png">
+<meta property="og:image" content="http://yangyihui2020.github.io/2025/04/13/essays/%E9%9A%8F%E7%AC%94/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%20(copy)/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/2025-04-13-19-41-25.png">
+<meta property="og:image" content="http://yangyihui2020.github.io/2025/04/13/essays/%E9%9A%8F%E7%AC%94/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%20(copy)/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/2025-04-13-19-43-07.png">
+<meta property="article:published_time" content="2025-04-13T13:04:39.200Z">
+<meta property="article:modified_time" content="2025-04-14T04:53:27.484Z">
 <meta property="article:author" content="yihui">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://yangyihui2020.github.io/2025/03/13/ReadingNotes/rag/M3-Embedding/2025-04-14-15-01-21.png">
+<meta name="twitter:image" content="http://yangyihui2020.github.io/2025/04/13/essays/%E9%9A%8F%E7%AC%94/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%20(copy)/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/2025-04-13-18-51-30.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>M3-Embedding Multi-Linguality, Multi-Functionality, Multi-Granularity Text Embeddings Through Self-Knowledge Distillation - Hexo</title>
+  <title>Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -226,7 +239,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="M3-Embedding Multi-Linguality, Multi-Functionality, Multi-Granularity Text Embeddings Through Self-Knowledge Distillation"></span>
+            <span id="subtitle" data-typed-text=""></span>
           
         </div>
 
@@ -242,8 +255,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-03-13 15:47" pubdate>
-          2025年3月13日 下午
+        <time datetime="2025-04-13 21:04" pubdate>
+          2025年4月13日 晚上
         </time>
       </span>
     
@@ -308,7 +321,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">M3-Embedding Multi-Linguality, Multi-Functionality, Multi-Granularity Text Embeddings Through Self-Knowledge Distillation</h1>
+            <h1 id="seo-header"></h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
@@ -321,76 +334,82 @@
             
               <div class="markdown-body">
                 
-                <h2 id="研究背景">研究背景</h2>
-<p>这篇文章要解决的问题是如何设计一种多语言、多功能、多粒度的文本嵌入模型，以支持超过100种工作语言的语义检索，并能同时完成<mark>密集检索、多向量检索和稀疏检索</mark>等多种检索功能。</p>
-<h2 id="研究方法">研究方法</h2>
-<h3 id="混合检索">混合检索</h3>
-<p>M3-Embedding统一了文本嵌入模型的常见检索功能，包括密集检索、词汇（稀疏）检索和多向量检索。这些功能不仅可以单独工作，还可以协同工作以获得更强的检索质量。</p>
-<h4 id="密集检索dense-retrieval.">密集检索（Dense retrieval.）</h4>
+                <h1 id="mysqlvscode环境配置">mysql+vscode环境配置</h1>
+<h2 id="一mysql安装">一、mysql安装</h2>
+<p><font color=red size=4>系统环境为win11</font></p>
+<ol type="1">
+<li><p><strong>下载</strong><a target="_blank" rel="noopener" href="https://downloads.mysql.com/archives/installer/">mysql80</a></p>
+<img src="mysql+vscode环境配置/2025-04-13-18-51-30.png" srcset="/img/loading.gif" lazyload />
 <ul>
-<li>输入query <span class="math inline"><em>q</em></span> 将转换为基于文本编码器的隐藏状态 <span class="math inline"><strong>H</strong><sub><strong>q</strong></sub></span>。使用特殊标记 “[CLS]” 的规范化隐藏状态来表示query：<span class="math inline"><em>e</em><sub><em>q</em></sub> = norm(<strong>H</strong><sub><strong>q</strong></sub>[0])</span></li>
-<li><p>passage的嵌入 <span class="math inline"><em>p</em></span> 为 <span class="math inline"><em>e</em><sub><em>p</em></sub> = norm(<strong>H</strong><sub><strong>p</strong></sub>[0])</span>。</p></li>
-<li><p>因此，query和passage之间的相关性分数由两个嵌入和 <span class="math inline"><em>e</em><sub><em>q</em></sub><em>e</em><sub><em>p</em></sub></span>：<span class="math inline"><em>s</em><sub>dense</sub> ← ⟨<em>e</em><sub><em>p</em></sub>, <em>e</em><sub><em>q</em></sub>⟩</span> 之间的内积来衡量。</p></li>
-</ul>
-<h4 id="词汇检索lexical-retrieval.">词汇检索（Lexical Retrieval. ）</h4>
+<li>下载完成后直接双击安装</li>
+</ul></li>
+<li><strong>Choosing a Setup Type</strong>
 <ul>
-<li>对于query中的每个token <span class="math inline"><em>t</em></span>，其权重的计算公式为</li>
-</ul>
-<p><br /><span class="math display">$$
-w_{q_t} \leftarrow\text{Relu}(\mathbf{W}_{\text{lex}}^T \mathbf{H_q}[i])\\
-$$</span><br /></p>
+<li>选择Custom安装（如果你内存充足，可以直接选Full) <img src="mysql+vscode环境配置/2025-04-13-19-00-48.png" srcset="/img/loading.gif" lazyload /></li>
+</ul></li>
+<li><p><strong>选择想要安装的产品</strong>（注意server和workbench是必须的） <img src="mysql+vscode环境配置/2025-04-13-19-00-28.png" srcset="/img/loading.gif" lazyload /></p></li>
+</ol>
+<p><font color=red size=4>注意这里有一个很小的选项<code>Advanced Options</code>,可以更改你的安装路径</font></p>
+<ol start="4" type="1">
+<li><p>选完之后直接点<strong>执行</strong>就可开始安装了 <img src="mysql+vscode环境配置/2025-04-13-19-04-32.png" srcset="/img/loading.gif" lazyload /></p></li>
+<li>安装完成之后就是一路 <code>next</code>,然后开始<strong>设置你的root密码</strong> <img src="mysql+vscode环境配置/2025-04-13-19-07-16.png" srcset="/img/loading.gif" lazyload /></li>
+<li><p>设置完之后还是一路<code>next</code>,<strong>点击<code>finish</code></strong>就可以完成你的mysql安装了</p></li>
+</ol>
+<p><font color=red size=4>有同学会在检查依赖卡住，只需要通过安装界面提示安装所需库。 比如显示缺少库<a target="_blank" rel="noopener" href="https://aka.ms/vs/17/release/vc_redist.x86.exe"><strong>VC_redist_x64</strong></a>，下载安装即可。</font></p>
+<h2 id="二配置环境变量与验证mysql可用性">二、配置环境变量与验证mysql可用性</h2>
+<p>到目前为止大家打开命令行, 直接输入<code>mysql</code>命令会报错，因为还没有设置相关的环境变量。 <img src="mysql+vscode环境配置/2025-04-13-19-11-31.png" srcset="/img/loading.gif" lazyload /> 按照下面的步骤可以实现mysql环境变量的设置与在命令行中</p>
+<ol type="1">
+<li><strong>确认mysql的安装地址</strong>
 <ul>
-<li>其中 <span class="math inline"><strong>W</strong><sub>lex</sub> ∈ ℝ<sup><em>d</em> × 1</sup></span> 是将隐藏状态映射到浮点数的矩阵。</li>
-<li>如果某个token <span class="math inline"><em>t</em></span> 在query中多次出现，只保留其最大权重。并使用相同的方法来计算passage中每个token的权重。</li>
-<li>因此query和passage之间的相关性分数是通过query和passage中共存token（表示为 <span class="math inline"><em>q</em> ∩ <em>p</em></span>）的联合重要性来计算的：</li>
-<li><br /><span class="math display">$$
-s_{\text{lex}} \leftarrow \sum_{t \in q \cap p}(w_{q_t} * w_{p_t})\\
-$$</span><br /></li>
+<li>比如我的就是<code>D:\MySQL</code>，该地址下会安装有mysql的exe可执行文件</li>
 </ul>
-<h4 id="多向量检索-multi-vector-retrieval.">多向量检索 (Multi-Vector Retrieval. )</h4>
+<p><img src="mysql+vscode环境配置/2025-04-13-19-14-14.png" srcset="/img/loading.gif" lazyload /></p></li>
+<li><p>复制该地址，然后将其<strong>添加到系统变量的PATH中</strong> <img src="mysql+vscode环境配置/2025-04-13-19-18-06.png" srcset="/img/loading.gif" lazyload /></p></li>
+<li><p>这时重新打开终端输入mysql就可用了</p></li>
+</ol>
+<p><font color=red size=4>如果还是不行，可以重启电脑再试试</font></p>
+<ol start="4" type="1">
+<li>从命令行连接mysql
 <ul>
-<li>作为密集检索的扩展，多向量检索利用整个输出嵌入来表示query和passage：</li>
-</ul>
-<p><br /><span class="math display">$$
-E_q = \text{norm}(\mathbf{W}_{\text{mul}}^T \mathbf{H_q})\\ 
-$$</span><br /></p>
-<p><br /><span class="math display">$$
-E_p = \text{norm}(\mathbf{W}_{\text{mul}}^T \mathbf{H_p})\\
-$$</span><br /></p>
+<li><p>使用<code>mysql -u &lt;usr_name&gt; -p</code>登录</p></li>
+<li>因为这里这里我还没有新建用户，所以登录用户就是root，登录密码就是刚刚安装mysql所用的密码，登录如下： <img src="mysql+vscode环境配置/2025-04-13-19-21-49.png" srcset="/img/loading.gif" lazyload /></li>
+</ul></li>
+<li>关于在命令行中使用mysql的操作这里就不赘述了
 <ul>
-<li><p>其中 <span class="math inline"><strong>W</strong><sub>mul</sub> ∈ ℝ<sup><em>d</em> × <em>d</em></sup></span> 是可学习的投影矩阵。</p></li>
-<li>使用后期交互来计算细粒度的相关性分数： <br /><span class="math display">$$
-s_{\text{mul}} \leftarrow \frac{1}{N} \sum_{i=1}^N \max_{j=1}^M E_q[i] \cdot E_p^T[j]\\
-$$</span><br /></li>
-<li><p><span class="math inline"><em>N</em></span> 和 <span class="math inline"><em>M</em></span> 是query和passage的长度。</p></li>
-</ul>
-<p>每种方法都可以单独检索候选结果（多向量方法由于成本高，可以免于此步骤）。然后，根据集成的相关性分数对最终检索结果进行重新排名：</p>
-<p><br /><span class="math display">$$
-S_{\text{rank}} \leftarrow w_1 \cdot S_{\text{dense}} + w_2 \cdot S_{\text{lex}} + w_3 \cdot S_{\text{mul}}\\
-$$</span><br /></p>
-<h3 id="自我认识蒸馏self-knowledge-distillation">自我认识蒸馏(Self-Knowledge Distillation)</h3>
-<h4 id="损失函数">损失函数</h4>
-<p>嵌入模型经过训练以区分阳性样本和阴性样本。对于每种检索方法，与负样本相比，应为查询的正样本分配更高的分数。因此，进行训练过程以最小化 InfoNCE 损失，其一般形式由以下损失函数表示：</p>
-<p><img src="2025-04-14-15-01-21.png" srcset="/img/loading.gif" lazyload /></p>
-<p>这里，<span class="math inline"><em>p</em><sup>*</sup></span> 和 <span class="math inline"><em>p</em>′</span> 代表查询 <span class="math inline"><em>q</em></span> 的正样本和负样本</p>
-<p><span class="math inline"><em>s</em>( ⋅ )</span> 是 <span class="math inline"><em>s</em><sub>dense</sub>( ⋅ )</span>,<span class="math inline"><em>s</em><sub>lex</sub>( ⋅ )</span>,<span class="math inline"><em>s</em><sub>mul</sub>( ⋅ )</span> 中的任何函数。</p>
+<li>感兴趣的同学可以参考 <a target="_blank" rel="noopener" href="https://www.oryoy.com/news/ru-he-shi-yong-cmd-ming-ling-xing-jin-ru-mysql-shu-ju-ku-xiang-xi-bu-zhou-jie-xi.html">如何使用CMD命令行进入MySQL数据库：详细步骤解析</a></li>
+</ul></li>
+</ol>
+<h2 id="三在vscode中使用mysql">三、在vscode中使用mysql</h2>
+<p>mysql可以直接在命令行中使用，也可以在workbench中使用，这里就不一一介绍相关用法了，感兴趣的同学可以自行百度，这里主要介绍在vscode中使用mysql</p>
+<ol type="1">
+<li><strong>安装插件</strong>
 <ul>
-<li>不同检索方法的训练目标可能与各自的方法相互冲突。因此，原生多目标训练可能不利于嵌入的质量。为了促进多个检索函数的优化，作者建议在自我知识蒸馏之上统一训练过程。在最简单的形式中，积分可以是不同预测分数的加权和：</li>
-</ul>
-<p><br /><span class="math display">$$
-S_{\text{inter}} \leftarrow w_1 \cdot S_{\text{dense}} + w_2 \cdot S_{\text{lex}} + w_3 \cdot S_{\text{mul}}\\
-$$</span><br /></p>
+<li>在vscode中安装以下两个插件 <img src="mysql+vscode环境配置/2025-04-13-19-29-20.png" srcset="/img/loading.gif" lazyload /></li>
+<li>安装完左边会出现database的选项，点击即可进行连接 <img src="mysql+vscode环境配置/2025-04-13-19-30-45.png" srcset="/img/loading.gif" lazyload /></li>
+</ul></li>
+<li><strong>连接mysql</strong>
 <ul>
-<li>使用积分分数 <span class="math inline"><em>S</em><sub><em>i</em><em>n</em><em>t</em><em>e</em><em>r</em></sub></span>作为老师，于是其中每种检索方法的损失函数被修改为:</li>
+<li>服务类型选<code>Mysql</code>,然后按照你的偏好设置相关配置（如果不出意外的话，这里你只需要填写你的root密码，其他的使用默认的即可） <img src="mysql+vscode环境配置/2025-04-13-19-33-07.png" srcset="/img/loading.gif" lazyload /></li>
+<li>连接成功后vsocode的左侧会如图所示 <img src="mysql+vscode环境配置/2025-04-13-19-34-42.png" srcset="/img/loading.gif" lazyload /></li>
+</ul></li>
+<li><strong>创建一个数据库</strong>
+<ul>
+<li>比如我这里创建一个数据库名为<code>lab1</code>，点击对应的按钮，修改数据库名 <img src="mysql+vscode环境配置/2025-04-13-19-36-24.png" srcset="/img/loading.gif" lazyload /></li>
+<li>然后点击<code>run</code>，就可以成功创建一个名为<code>lab1</code>的数据库 <img src="mysql+vscode环境配置/2025-04-13-19-36-58.png" srcset="/img/loading.gif" lazyload /></li>
+<li>然后即可在该数据库中执行建表查询等操作了</li>
+</ul></li>
+<li><p>在vscode中直接<strong>创建表</strong> <img src="mysql+vscode环境配置/2025-04-13-19-41-25.png" srcset="/img/loading.gif" lazyload /></p></li>
+<li><p>在vscode中直接进行<strong>查询</strong> <img src="mysql+vscode环境配置/2025-04-13-19-43-07.png" srcset="/img/loading.gif" lazyload /></p></li>
+</ol>
+<p><font color=red size=4>其他操作感兴趣的同学可以自行尝试，如创建视图等操作，这里就不一一赘述了</font></p>
+<h2 id="写在最后">写在最后</h2>
+<p>有需要的同学可以参考其他相关教程</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903831298375693">MAC安装mysql教程</a>、</li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixx3/article/details/80782479">ubuntu安装mysql教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://runoob.com/mysql/mysql-install.html">mysql安装</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/118e1c41e9f0">sql命令参考</a></li>
 </ul>
-<p><img src="2025-04-14-15-02-08.png" srcset="/img/loading.gif" lazyload /> - 这里，<span class="math inline"><em>p</em>( ⋅ )</span> 是 softmax 激活；<span class="math inline"><em>s</em><sub>*</sub></span> 是 <span class="math inline"><em>s</em><sub>dense</sub></span>、<span class="math inline"><em>s</em><sub>lex</sub></span> 和 <span class="math inline"><em>s</em><sub>mul</sub></span> 中的任何成员。我们进一步整合并归一化修改后的损失函数： <img src="2025-04-14-15-02-26.png" srcset="/img/loading.gif" lazyload /></p>
-<p>最后，用 <span class="math inline">ℒ</span> 和的 <span class="math inline">ℒ′</span> 线性组合推导出自我知识蒸馏的最终损失函数： <br /><span class="math display">$$
-\mathcal{L}_{\text{final}} \leftarrow \left( \mathcal{L} + \mathcal{L}' \right) / 2\\
-$$</span><br /></p>
-<h4 id="训练过程">训练过程</h4>
-<p>训练过程包括一个<strong>多阶段工作流</strong>（如图所示）。首先，文本编码器（XLM-RoBERTa模型）使用大量无监督数据进行预训练，其中仅以基本形式的对比学习训练密集检索。</p>
-<p>在第二阶段应用自知识蒸馏，其中嵌入模型被微调以建立三个检索功能。<span class="math inline"><strong>W</strong><sub>lex</sub></span>的随机初始化导致<span class="math inline"><em>s</em><sub>lex</sub></span>准确性差和训练开始时的<span class="math inline">ℒ<sub>lex</sub></span>高。</p>
-<p><img src="/images/m3-embedding训练过程.png" srcset="/img/loading.gif" lazyload /></p>
 
                 
               </div>
@@ -398,34 +417,6 @@ $$</span><br /></p>
             <hr/>
             <div>
               <div class="post-metas my-3">
-  
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/ReadingNotes/" class="category-chain-item">ReadingNotes</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/ReadingNotes/rag/" class="category-chain-item">rag</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
   
   
 </div>
@@ -436,8 +427,8 @@ $$</span><br /></p>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>M3-Embedding Multi-Linguality, Multi-Functionality, Multi-Granularity Text Embeddings Through Self-Knowledge Distillation</div>
-      <div>http://yangyihui2020.github.io/2025/03/13/ReadingNotes/rag/M3-Embedding/</div>
+      <div></div>
+      <div>http://yangyihui2020.github.io/2025/04/13/essays/随笔/mysql+vscode环境配置 (copy)/</div>
     </div>
     <div class="license-meta">
       
@@ -449,7 +440,7 @@ $$</span><br /></p>
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年3月13日</div>
+          <div>2025年4月13日</div>
         </div>
       
       
@@ -481,18 +472,12 @@ $$</span><br /></p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/04/07/ReadingNotes/rag/rag_eval/" title="基于ragas和evalscope实现rag快速评测">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">基于ragas和evalscope实现rag快速评测</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/02/25/essays/Hexo/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AB%AF%E5%90%8C%E6%AD%A5/" title="hexo搭建博客实现多端同步">
-                        <span class="hidden-mobile">hexo搭建博客实现多端同步</span>
+                      <a href="/2025/04/13/essays/%E9%9A%8F%E7%AC%94/mysql+vscode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" title="mysql+vscode环境配置">
+                        <span class="hidden-mobile">mysql+vscode环境配置</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
